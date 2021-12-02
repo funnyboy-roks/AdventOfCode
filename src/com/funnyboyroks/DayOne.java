@@ -6,15 +6,10 @@ import java.util.List;
 public class DayOne {
 
     public static void main(String[] args) {
-        String input = Util.getInput(1);
-        String[] data = parseData(input.trim());
+        String[] data = Util.lines(1);
 
 //        partOne(data); // 8:31
 //        partTwo(data); // 13:01
-    }
-
-    public static String[] parseData(String input) {
-        return input.split("\n");
     }
 
     public static void partOne(String[] data) {
