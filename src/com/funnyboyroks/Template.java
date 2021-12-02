@@ -3,15 +3,10 @@ package com.funnyboyroks;
 public class Template {
 
     public static void main(String[] args) {
-        String input = Util.getInput("input1.txt");
-        String[] data = parseData(input.trim());
+        String[] data = Util.lines(1);
 
         partOne(data); // ##:##
         partTwo(data); // ##:##
-    }
-
-    public static String[] parseData(String input) {
-        return input.split("\n");
     }
 
     public static void partOne(String[] data) {
