@@ -6,7 +6,7 @@ import java.util.List;
 public class DayOne {
 
     public static void main(String[] args) {
-        String input = Util.getInput("input1.txt");
+        String input = Util.getInput(1);
         String[] data = parseData(input.trim());
 
 //        partOne(data); // 8:31
