@@ -5,7 +5,7 @@ import java.util.*;
 public class DayTwo {
 
     public static void main(String[] args) {
-        String input = Util.getInput("input2.txt");
+        String input = Util.getInput(2);
         String[] data = parseData(input.trim());
 
 //        partOne(data); // ##:##
