@@ -1,18 +1,18 @@
 package com.funnyboyroks;
 
+import org.intellij.lang.annotations.Language;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Util {
-
-    public static void main(String[] args) {
-        // write your code here
-    }
 
     public static File getFile(String s) {
         File f = new File(s);
@@ -48,5 +48,18 @@ public class Util {
 
     public static List<Integer> ints(int day) {
         return ints(day, "\n");
+    }
+
+    /**
+     * Effectively function like JavaScript String.match(RegExp) -- Returns a list from the groups in the regex
+     */
+    public static List<String> match(String input, @Language("RegExp") String regex) {
+        List<String> out = new ArrayList<>();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        while (matcher.find()) {
+            out.add(matcher.group());
+
+        }
+        return out;
     }
 }
