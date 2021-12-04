@@ -6,7 +6,8 @@ import java.util.List;
 public class DayOne {
 
     public static void main(String[] args) {
-        String[] data = Util.lines(1);
+        String[] data = Util.lines(1)
+            .toArray(String[]::new); // Initially written when Util#lines returned String[]
 
 //        partOne(data); // 8:31
 //        partTwo(data); // 13:01

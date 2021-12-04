@@ -6,8 +6,9 @@ import java.util.Objects;
 public class DayTwoB {
 
     public static void main(String[] args) {
-        String[] input = Util.lines(2);
-        Instruction[] data = parseData(input);
+        String[] input = Util.lines(2)
+            .toArray(String[]::new); // Initially written when Util#lines returned String[]
+        Instruction[] data = parseData(input); // Written before Util#values
 //        Instruction[] data = parseData("forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2".split("\n"));
 
         // Part 1 done in DayTwoA.java

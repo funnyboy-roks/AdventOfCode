@@ -9,7 +9,8 @@ import java.util.stream.Collectors;
 public class DayThree {
 
     public static void main(String[] args) {
-        String[] data = Util.lines(3);
+        String[] data = Util.lines(3)
+            .toArray(String[]::new); // Initially written when Util#lines returned String[]
 
         partOne(data); // 06:50
 //        partTwo(data); // 31:12
