@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
@@ -114,5 +113,12 @@ public class Util {
      */
     public static <T> ArrayList<T> mut(Collection<T> list) {
         return new ArrayList<>(list);
+    }
+
+    public static String time(Runnable r) {
+        long start = System.currentTimeMillis();
+        r.run();
+        long end = System.currentTimeMillis();
+        return String.format("%dms", end - start);
     }
 }
