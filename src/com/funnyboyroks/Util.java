@@ -11,12 +11,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 import java.util.regex.MatchResult;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Util {
-
     public static File getFile(String s) {
         File f = new File(s);
         if (!f.exists()) {
@@ -42,7 +41,7 @@ public class Util {
     }
 
     public static List<String> split(int day, String delimiter) {
-        return Arrays.stream(getInput(day).split(delimiter)).collect(Collectors.toList());
+        return mut(List.of(getInput(day).split(delimiter)));
     }
 
     public static List<Integer> ints(int day, String delimiter) {
@@ -77,7 +76,7 @@ public class Util {
     }
 
     public static List<Integer> sumInts(Collection<Integer> nums, int sum, int amount) {
-        if (amount == 0) return Arrays.asList(1); // Rather than List#of, so it's mutable
+        if (amount == 0) return mut(List.of(1));
         if (amount == 1) return nums.stream().filter(i -> i == sum).collect(Collectors.toList());
         List<Integer> result = new ArrayList<>();
         for (Integer i : nums) {
@@ -94,12 +93,26 @@ public class Util {
      * Effectively function like JavaScript String.match(RegExp) -- Returns a list from the groups in the regex
      */
     public static List<String> match(String input, @Language("RegExp") String regex) {
-        List<String> out = new ArrayList<>();
-        Matcher matcher = Pattern.compile(regex).matcher(input);
-        while (matcher.find()) {
-            out.add(matcher.group());
+        // Limit to one group per string
+        if (!regex.startsWith("^")) regex = "^" + regex;
+        if (!regex.endsWith("$")) regex += "$";
 
-        }
-        return out;
+        return Pattern.compile(regex)
+            .matcher(input)
+            .results()
+            .map(Util::groups)
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
+    }
+
+    public static List<String> groups(MatchResult mr) {
+        return IntStream.rangeClosed(1, mr.groupCount()).mapToObj(mr::group).toList();
+    }
+
+    /**
+     * Convert a {@link Collection} into a mutable {@link ArrayList}
+     */
+    public static <T> ArrayList<T> mut(Collection<T> list) {
+        return new ArrayList<>(list);
     }
 }
