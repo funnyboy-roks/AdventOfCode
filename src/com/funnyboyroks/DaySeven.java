@@ -10,7 +10,7 @@ public class DaySeven {
 //        data = List.of(16, 1, 2, 0, 4, 2, 7, 1, 2, 14); // sample
 
         System.out.println(partOne(data)); // 09:18
-        System.out.println(partTwo(data)); // TODO: (idk -- stats temp disabled)
+        System.out.println(partTwo(data)); // 17:46
     }
 
     public static int partOne(List<Integer> data) {
