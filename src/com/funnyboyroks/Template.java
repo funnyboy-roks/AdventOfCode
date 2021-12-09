@@ -7,16 +7,20 @@ public class Template {
     public static void main(String[] args) {
         List<String> data = Util.lines(1);
 
-        partOne(data); // ##:##
-        partTwo(data); // ##:##
+        Util.time(() -> {
+            System.out.println(partOne(data)); // ##:##
+//            System.out.println(partTwo(data)); // ##:##
+        });
     }
 
-    public static void partOne(List<String> data) {
+    public static int partOne(List<String> data) {
 
+        return -1;
     }
 
-    public static void partTwo(List<String> data) {
+    public static int partTwo(List<String> data) {
 
+        return -1;
     }
 
 }
