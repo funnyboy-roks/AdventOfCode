@@ -32,7 +32,7 @@ public class Util {
     }
 
     public static String getInput(int day) {
-        return getInput("input/day" + day + ".txt");
+        return getInput(String.format("input/day%02d.txt", day));
     }
 
     public static List<String> lines(int day) {
@@ -115,10 +115,11 @@ public class Util {
         return new ArrayList<>(list);
     }
 
-    public static String time(Runnable r) {
+    public static long time(Runnable r) {
         long start = System.currentTimeMillis();
         r.run();
         long end = System.currentTimeMillis();
-        return String.format("%dms", end - start);
+        System.out.println("Time: " + (end - start) + "ms");
+        return end - start;
     }
 }
