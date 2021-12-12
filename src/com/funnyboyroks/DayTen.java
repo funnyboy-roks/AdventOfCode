@@ -20,7 +20,7 @@ public class DayTen {
 //            <{([{{}}[<[[[<>{}]]]>[]]""".lines().map(String::trim).toList();
 
 //        System.out.println(partOne(data)); // 12:22
-            System.out.println(partTwo(data)); // 26:59 - I'm dumb
+        System.out.println(partTwo(data)); // 26:59 - I'm dumb
     }
 
     public static Map<Character, Integer> ERR_PTS = new HashMap<>();
@@ -46,26 +46,15 @@ public class DayTen {
             lineLoop:
             for (char c : line.toCharArray()) {
                 switch (c) {
-                    case '(':
-                    case '[':
-                    case '{':
-                    case '<':
-                        stack.push(c);
-                        break;
-                    case ')':
-                    case ']':
-                    case '}':
-                    case '>':
-                        if (stack.isEmpty()) {
-                            break;
-                        }
+                    case '(', '[', '{', '<' -> stack.push(c);
+                    case ')', ']', '}', '>' -> {
+                        if (stack.isEmpty()) break;
                         char top = stack.pop();
                         if (top == '(' && c != ')' || top == '[' && c != ']' || top == '{' && c != '}' || top == '<' && c != '>') {
                             sum += ERR_PTS.get(c);
-                            System.out.println(c);
                             break lineLoop;
                         }
-                        break;
+                    }
                 }
             }
         }
@@ -79,9 +68,7 @@ public class DayTen {
             switch (c) {
                 case '(', '[', '{', '<' -> stack.push(c);
                 case ')', ']', '}', '>' -> {
-                    if (stack.isEmpty()) {
-                        break;
-                    }
+                    if (stack.isEmpty()) break;
                     char top = stack.pop();
                     if (top == '(' && c != ')' || top == '[' && c != ']' || top == '{' && c != '}' || top == '<' && c != '>') {
                         return false;
@@ -108,7 +95,7 @@ public class DayTen {
             }
             String chars = stack.stream().map(Object::toString).collect(Collectors.joining(""));
             long sum = 0;
-            while(!stack.isEmpty()) {
+            while (!stack.isEmpty()) {
                 sum *= 5;
                 sum += AC_PTS.get(stack.pop());
             }
