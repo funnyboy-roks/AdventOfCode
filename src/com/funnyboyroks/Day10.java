@@ -3,7 +3,7 @@ package com.funnyboyroks;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class DayTen {
+public class Day10 {
 
     public static void main(String[] args) {
         List<String> data = Util.lines(10);
@@ -81,7 +81,7 @@ public class DayTen {
 
     public static long partTwo(List<String> data) {
 
-        data = data.stream().filter(DayTen::valid).collect(Collectors.toList());
+        data = data.stream().filter(Day10::valid).collect(Collectors.toList());
 
         // Bruh, spent 10 minutes because I was using ints and not longs 🤦
         List<Long> sums = new ArrayList<>();

@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class DayFour {
+public class Day04 {
 
     public static void main(String[] args) {
         String data = Util.getInput(4);

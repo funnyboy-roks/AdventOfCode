@@ -2,11 +2,9 @@ package com.funnyboyroks;
 
 import java.awt.*;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class DayThree {
+public class Day03 {
 
     public static void main(String[] args) {
         String[] data = Util.lines(3)

@@ -3,7 +3,7 @@ package com.funnyboyroks;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DayOne {
+public class Day01 {
 
     public static void main(String[] args) {
         String[] data = Util.lines(1)

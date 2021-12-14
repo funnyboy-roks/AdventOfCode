@@ -3,7 +3,7 @@ package com.funnyboyroks;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class DaySeven {
+public class Day07 {
 
     public static void main(String[] args) {
         List<Integer> data = Util.ints(7, ",");
@@ -35,7 +35,7 @@ public class DaySeven {
             .map(n -> data.stream()
                 .map(i1 -> i1 - n)
                 .map(Math::abs)
-                .map(DaySeven::wtf)
+                .map(Day07::wtf)
                 .reduce(0, Integer::sum)
             )
             .min()

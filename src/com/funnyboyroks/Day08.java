@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 
-public class DayEight {
+public class Day08 {
 
     public static int[][] digits = new int[][]{
         //         a  b  c  d  e  f  g

@@ -1,9 +1,8 @@
 package com.funnyboyroks;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class DayTwelve {
+public class Day12 {
 
     public static void main(String[] args) {
         List<String[]> data = Util.values(12, (s) -> s.split("-"));

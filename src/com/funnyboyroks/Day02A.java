@@ -3,7 +3,7 @@ package com.funnyboyroks;
 import java.awt.*;
 import java.util.Objects;
 
-public class DayTwoB {
+public class Day02A {
 
     public static void main(String[] args) {
         String[] input = Util.lines(2)
@@ -11,8 +11,8 @@ public class DayTwoB {
         Instruction[] data = parseData(input); // Written before Util#values
 //        Instruction[] data = parseData("forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2".split("\n"));
 
-        // Part 1 done in DayTwoA.java
-        partTwo(data); // 13:29
+        partOne(data); // 08:55
+        // Part 2 done in DayTwoB.java
     }
 
     public static Instruction[] parseData(String[] data) {
@@ -24,24 +24,12 @@ public class DayTwoB {
         return instructions;
     }
 
-    public static void partTwo(Instruction[] data) {
-        Point pos = new Point(0, 0);
-        int aim = 0;
-        for (Instruction instruction : data) {
-            switch (instruction.control) {
-                case UP -> {
-                    aim -= instruction.a;
-                }
-                case DOWN -> {
-                    aim += instruction.a;
-                }
-                case FORWARD -> {
-                    pos.x += instruction.a;
-                    pos.y += aim * instruction.a;
-                }
-            }
+    public static void partOne(Instruction[] data) {
 
-//            pos.translate(instruction.control.dx * instruction.a, instruction.control.dy * instruction.a);
+        Point pos = new Point(0, 0);
+        for (Instruction instruction : data) {
+
+            pos.translate(instruction.control.dx * instruction.a, instruction.control.dy * instruction.a);
         }
         System.out.println(pos.x * pos.y);
     }

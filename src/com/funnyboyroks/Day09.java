@@ -2,13 +2,10 @@ package com.funnyboyroks;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class DayNine {
+public class Day09 {
 
     public static void main(String[] args) {
         List<List<Integer>> data = Util.values(9, (s) -> Stream.of(s.split("")).map(Integer::parseInt).toList());

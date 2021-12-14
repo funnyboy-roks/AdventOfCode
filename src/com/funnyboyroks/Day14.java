@@ -1,10 +1,9 @@
 package com.funnyboyroks;
 
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class DayFourteen {
+public class Day14 {
 
     public static void main(String[] args) {
         List<String> rawData = Util.lines(14);

@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-public class DayEleven {
+public class Day11 {
 
     public static void main(String[] args) {
         int[][] data = Util.values(11, (s) ->

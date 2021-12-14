@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
-public class DaySix {
+public class Day06 {
 
     public static void main(String[] args) {
         List<Integer> data = Util.ints(6, ",");

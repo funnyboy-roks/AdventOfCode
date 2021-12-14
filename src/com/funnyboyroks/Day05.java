@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DayFive {
+public class Day05 {
 
     public static void main(String[] args) {
         List<String> input = Util.lines(5);
