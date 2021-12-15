@@ -8,32 +8,32 @@ public class Day14 {
     public static void main(String[] args) {
         List<String> rawData = Util.lines(14);
 
-        rawData = """
-            NNCB
-
-            CH -> B
-            HH -> N
-            CB -> H
-            NH -> C
-            HB -> C
-            HC -> B
-            HN -> C
-            NN -> C
-            BH -> H
-            NC -> B
-            NB -> B
-            BN -> B
-            BB -> N
-            BC -> B
-            CC -> N
-            CN -> C""".lines().map(String::trim).toList();
+//        rawData = """
+//            NNCB
+//
+//            CH -> B
+//            HH -> N
+//            CB -> H
+//            NH -> C
+//            HB -> C
+//            HC -> B
+//            HN -> C
+//            NN -> C
+//            BH -> H
+//            NC -> B
+//            NB -> B
+//            BN -> B
+//            BB -> N
+//            BC -> B
+//            CC -> N
+//            CN -> C""".lines().map(String::trim).toList();
 
         Map.Entry<String, Map<String, String>> data = parseData(rawData);
 
-//        Util.time(() -> {
+        Util.time(() -> {
 //        System.out.println(partOne(data.getKey(), data.getValue())); // ##:##
         System.out.println(partTwo(data.getKey(), data.getValue())); // ##:##
-//        });
+        });
     }
 
     private static Map.Entry<String, Map<String, String>> parseData(List<String> rawData) {
