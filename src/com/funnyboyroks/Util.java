@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
@@ -121,6 +122,32 @@ public class Util {
         long end = System.currentTimeMillis();
         System.out.println("Time: " + formatMillis(end - start));
         return end - start;
+    }
+
+    public static int[][] mat(int day) {
+        return lines(day).stream()
+            .map(s ->
+                     Arrays.stream(s.split(""))
+                         .mapToInt(Integer::parseInt)
+                         .toArray()
+            ).toArray(int[][]::new);
+    }
+
+    public static <T> T[][] mat(int day, Function<String, T> mapper) {
+        return (T[][]) lines(day).stream()
+            .map(s ->
+                     Arrays.stream(s.split(""))
+                         .map(mapper)
+                         .toArray()
+            ).toArray();
+    }
+
+    public static String convertBase(String input, int from, int to) {
+        return Long.toString(Long.parseLong(input, from), to);
+    }
+
+    public static String bin(int n, int digits) {
+        return padStart(Integer.toBinaryString(n), digits, '0');
     }
 
     public static String formatMillis(long millis) {
