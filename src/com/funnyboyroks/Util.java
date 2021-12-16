@@ -119,7 +119,24 @@ public class Util {
         long start = System.currentTimeMillis();
         r.run();
         long end = System.currentTimeMillis();
-        System.out.println("Time: " + (end - start) + "ms");
+        System.out.println("Time: " + formatMillis(end - start));
         return end - start;
+    }
+
+    public static String formatMillis(long millis) {
+        if(millis >= 60 * 60 * 1000) {
+            return "No!";
+        }
+        String out = "";
+        if(millis >= 60 * 1000) {
+            out += (millis / (60 * 1000)) + "m ";
+            millis %= 60 * 1000;
+        }
+        if (millis >= 1000) {
+            out += (millis / 1000) + "s ";
+            millis %= 1000;
+        }
+        out += millis + "ms ";
+        return out;
     }
 }
