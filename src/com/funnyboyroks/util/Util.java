@@ -1,4 +1,4 @@
-package com.funnyboyroks;
+package com.funnyboyroks.util;
 
 import org.intellij.lang.annotations.Language;
 

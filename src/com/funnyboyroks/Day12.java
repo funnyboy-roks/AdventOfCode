@@ -1,5 +1,7 @@
 package com.funnyboyroks;
 
+import com.funnyboyroks.util.Util;
+
 import java.util.*;
 
 public class Day12 {

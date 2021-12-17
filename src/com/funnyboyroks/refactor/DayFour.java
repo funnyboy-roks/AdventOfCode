@@ -1,6 +1,6 @@
 package com.funnyboyroks.refactor;
 
-import com.funnyboyroks.Util;
+import com.funnyboyroks.util.Util;
 
 import java.util.*;
 import java.util.stream.Collectors;

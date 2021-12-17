@@ -1,9 +1,8 @@
 package com.funnyboyroks.refactor;
 
-import com.funnyboyroks.Util;
+import com.funnyboyroks.util.Util;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
