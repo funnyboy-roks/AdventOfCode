@@ -8,8 +8,8 @@ public class Template {
         List<String> data = Util.lines(1);
 
         Util.time(() -> {
-            System.out.println(partOne(data)); // ##:##
-//            System.out.println(partTwo(data)); // ##:##
+            System.out.println("Part One: " + partOne(data)); // ##:##
+//            System.out.println("Part Two: " + partTwo(data)); // ##:##
         });
     }
 
