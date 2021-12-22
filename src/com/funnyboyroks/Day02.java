@@ -5,7 +5,7 @@ import com.funnyboyroks.util.Util;
 import java.awt.*;
 import java.util.Objects;
 
-public class Day02A {
+public class Day02 {
 
     public static void main(String[] args) {
         String[] input = Util.lines(2)
@@ -14,7 +14,7 @@ public class Day02A {
 //        Instruction[] data = parseData("forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2".split("\n"));
 
         partOne(data); // 08:55
-        // Part 2 done in DayTwoB.java
+//        partTwo(data); // 13:29
     }
 
     public static Instruction[] parseData(String[] data) {
@@ -32,6 +32,28 @@ public class Day02A {
         for (Instruction instruction : data) {
 
             pos.translate(instruction.control.dx * instruction.a, instruction.control.dy * instruction.a);
+        }
+        System.out.println(pos.x * pos.y);
+    }
+
+    public static void partTwo(Instruction[] data) {
+        Point pos = new Point(0, 0);
+        int aim = 0;
+        for (Instruction instruction : data) {
+            switch (instruction.control) {
+                case UP -> {
+                    aim -= instruction.a;
+                }
+                case DOWN -> {
+                    aim += instruction.a;
+                }
+                case FORWARD -> {
+                    pos.x += instruction.a;
+                    pos.y += aim * instruction.a;
+                }
+            }
+
+//            pos.translate(instruction.control.dx * instruction.a, instruction.control.dy * instruction.a);
         }
         System.out.println(pos.x * pos.y);
     }
@@ -65,7 +87,7 @@ public class Day02A {
             if (obj == null || obj.getClass() != this.getClass()) return false;
             var that = (Instruction) obj;
             return Objects.equals(this.control, that.control) &&
-                this.a == that.a;
+                   this.a == that.a;
         }
 
         @Override
@@ -76,8 +98,8 @@ public class Day02A {
         @Override
         public String toString() {
             return "Instruction[" +
-                "control=" + control + ", " +
-                "a=" + a + ']';
+                   "control=" + control + ", " +
+                   "a=" + a + ']';
         }
 
 
