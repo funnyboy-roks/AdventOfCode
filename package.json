@@ -1,0 +1,24 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "My code for [Advent of Code](https://adventofcode.com) [2019](https://en.wikipedia.org/wiki/2019 'lol')",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funnyboy-roks/AdventOfCode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/funnyboy-roks/AdventOfCode/issues"
+  },
+  "homepage": "https://github.com/funnyboy-roks/AdventOfCode#readme",
+  "dependencies": {
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
+  }
+}
