@@ -4,7 +4,7 @@ import fs from 'fs';
  * @param {number} day 
  */
 export const raw = (day) => {
-    d = day + '';
+    let d = day + '';
     d = d.padStart(2, '0');
     return fs.readFileSync(`input/day${d}.txt`, 'utf-8');
 }
