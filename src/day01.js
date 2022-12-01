@@ -1,6 +1,6 @@
 import { raw } from '../util.js';
 
-const rawData = /* raw(1) */`1000
+const rawData = raw(1)/* `1000
 2000
 3000
 
@@ -13,7 +13,7 @@ const rawData = /* raw(1) */`1000
 8000
 9000
 
-10000`;
+10000` */;
 
 const partOne = () => {
 
