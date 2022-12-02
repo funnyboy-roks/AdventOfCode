@@ -1,6 +1,6 @@
-import { raw } from '../util.js';
+import { loadRaw } from './util.js';
 
-const rawData = raw(1)/* `1000
+const rawData = loadRaw(1)/* `1000
 2000
 3000
 
