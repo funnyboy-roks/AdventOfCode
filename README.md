@@ -10,7 +10,7 @@ Obvious spoilers if you intend to solve for yourself.
 
 [`01`](https://github.com/funnyboy-roks/AdventOfCode/blob/2022/src/day01.js)
 [`02`](https://github.com/funnyboy-roks/AdventOfCode/blob/2022/src/day02.js)
-<!-- [`03`](https://github.com/funnyboy-roks/AdventOfCode/blob/2022/src/day03.js) -->
+[`03`](https://github.com/funnyboy-roks/AdventOfCode/blob/2022/src/day03.js)
 <!-- [`04`](https://github.com/funnyboy-roks/AdventOfCode/blob/2022/src/day04.js) -->
 <!-- [`05`](https://github.com/funnyboy-roks/AdventOfCode/blob/2022/src/day05.js)   -->
 <!-- [`06`](https://github.com/funnyboy-roks/AdventOfCode/blob/2022/src/day06.js) -->
