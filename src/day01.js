@@ -1,6 +1,6 @@
 import { loadRaw } from './util.js';
 
-const rawData = loadRaw(1)/* `1000
+const rawData = await loadRaw(1)/* `1000
 2000
 3000
 

@@ -1,7 +1,6 @@
-import './bad-but-great.js';
 import { loadRaw } from './util.js';
 
-let data = loadRaw(3);
+let data = await loadRaw(+process.argv[1].match(/.+?(\d+)\.js$/i)[1]);
 
 if (process.argv[2])
 	// Sample Data
