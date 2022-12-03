@@ -134,6 +134,16 @@ Object.defineProperties(Array.prototype, {
 			return permutationsArray;
 		},
 	},
+	chunk: {
+		value: function (maxSize) {
+			const out = [];
+			this.forEach((v, i) => {
+				if (i % maxSize === 0) out.push([v]);
+				else out.at(-1).push(v);
+			});
+			return out;
+		},
+	},
 });
 
 Object.defineProperties(String.prototype, {

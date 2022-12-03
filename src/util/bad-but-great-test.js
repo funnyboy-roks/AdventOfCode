@@ -36,8 +36,10 @@ import Grid from './Grid.js';
 // 	console.log(i);
 // }
 
-const grid = new Grid(5, 5, (x, y) => x + ',' + y);
+// const grid = new Grid(5, 5, (x, y) => x + ',' + y);
 
-grid.get(2, 2).log();
+// grid.get(2, 2).log();
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9].chunk(3).log();
 
 // grid.get(2, 2).getNeighbours().map(v => v.value).log()
