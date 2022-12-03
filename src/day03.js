@@ -52,7 +52,7 @@ const partTwo = () => {
 
 	for (let i in groups) {
 		let g = groups[i];
-		if (typeof g[0] != 'string') continue;
+		if (typeof g[0] != 'string') continue; // Afterword: This was needed due to a bug in `bad-but-great.js`.
 		for (let c of g[0]) {
 			console.log('checking', c, 'in', g[1]);
 			console.log('checking', c, 'in', g[2]);

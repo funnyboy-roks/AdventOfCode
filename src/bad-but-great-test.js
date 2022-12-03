@@ -30,3 +30,8 @@ arr.ror();
 arr.log();
 arr.rol(2);
 arr.log();
+
+
+for (let i in arr) {
+	console.log(i);
+}
