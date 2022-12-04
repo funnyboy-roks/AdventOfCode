@@ -1,7 +1,9 @@
-import './util/bad-but-great.js';
 import { read } from './util.js';
 
-let data = await read(+process.argv[1].match(/.+?(\d+)\.js$/i)[1]); // Get the current day based off the command line args
+let data;
+
+if (process.argv[2]) data = await readEx(); // Sample Data
+else data = await read(); // Real Data
 
 if (process.argv[2])
 	// Sample Data

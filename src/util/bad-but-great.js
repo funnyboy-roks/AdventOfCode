@@ -193,7 +193,7 @@ Object.defineProperties(Number.prototype, {
 });
 
 Object.defineProperties(Object.prototype, {
-	entries: {
+	getEntries: {
 		value: function () {
 			return Object.entries(this);
 		},
@@ -204,7 +204,7 @@ Object.defineProperties(Object.prototype, {
 		},
 	},
 	log: {
-		value: function () {
+		value: function (prefix) {
 			const originalPrepareStackTrace = Error.prepareStackTrace;
 			Error.prepareStackTrace = (_, stack) => stack;
 
@@ -212,7 +212,7 @@ Object.defineProperties(Object.prototype, {
 			Error.prepareStackTrace = originalPrepareStackTrace;
 			const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}:${callee.getColumnNumber()}`;
 
-			console.log(this, 'from', location);
+			console.log(prefix, this, 'from', location);
 		},
 	},
 });

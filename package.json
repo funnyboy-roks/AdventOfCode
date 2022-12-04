@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "My code for Advent of Code 2022",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "type": "module",
   "repository": {
     "type": "git",
@@ -16,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/funnyboy-roks/AdventOfCode/issues"
   },
-  "homepage": "https://github.com/funnyboy-roks/AdventOfCode#readme"
+  "homepage": "https://github.com/funnyboy-roks/AdventOfCode#readme",
+  "dependencies": {
+    "jsdom": "^20.0.3"
+  }
 }
