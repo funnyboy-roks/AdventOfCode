@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/funnyboy-roks/AdventOfCode#readme",
   "dependencies": {
+    "clipboardy": "^3.0.0",
+    "combinations": "^1.0.0",
+    "itertools": "^1.7.1",
     "jsdom": "^20.0.3"
   }
 }

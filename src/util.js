@@ -5,6 +5,7 @@ import { existsSync } from 'fs';
 import env from '../.env.js';
 
 import V from './util/Vec.js';
+import clipboard from 'clipboardy';
 export const Vec = V;
 
 const day = +process.argv[1].match(/.+?(\d+)\.js$/i)[1];
@@ -65,3 +66,7 @@ export const loadRaw = read;
 export const createMatrix = (width, height, defaultValueCreator) => {
 	return new Array(height).fill(0).map((n) => new Array(width).fill(0).map(defaultValueCreator));
 };
+
+export const copy = (text) => {
+	clipboard.writeSync(text);
+}

@@ -1,6 +1,19 @@
 // This file makes every bone in my body hurt, *this is fine*
 
 import path from 'path';
+import clipboard from 'clipboardy';
+import { spawn } from 'child_process';
+import combinations from 'combinations';
+
+const copy = (value) => {
+	clipboard.writeSync(value + '');
+
+	const proc = spawn('xclip', ['-i']);
+	proc.stdin.write(value + '');
+	proc.stdin.end();
+	setTimeout(() => proc.kill(), 1000);
+	console.log('Done Copying');
+};
 
 Object.defineProperties(Array.prototype, {
 	sum: {
@@ -13,12 +26,27 @@ Object.defineProperties(Array.prototype, {
 			return this.reduce((a, b) => a * b, 1);
 		},
 	},
+	prod: {
+		value: function () {
+			return this.reduce((a, b) => a * b, 1);
+		},
+	},
 	numbers: {
 		value: function () {
 			return this.map((n) => +n);
 		},
 	},
+	nums: {
+		value: function () {
+			return this.map((n) => +n);
+		},
+	},
 	strings: {
+		value: function () {
+			return this.map((n) => n + '');
+		},
+	},
+	strs: {
 		value: function () {
 			return this.map((n) => n + '');
 		},
@@ -91,14 +119,14 @@ Object.defineProperties(Array.prototype, {
 			return this.slice();
 		},
 	},
-	count: {
-		value: function (valueOrFunction) {
-			return this.filter(typeof valueOrFunction === 'function' ? valueOrFunction : (n) => n === valueOrFunction);
-		},
-	},
 	deepCopy: {
 		value: function () {
 			return JSON.parse(JSON.stringify(this));
+		},
+	},
+	count: {
+		value: function (valueOrFunction) {
+			return this.filter(typeof valueOrFunction === 'function' ? valueOrFunction : (n) => n === valueOrFunction);
 		},
 	},
 	split: {
@@ -144,6 +172,16 @@ Object.defineProperties(Array.prototype, {
 			return out;
 		},
 	},
+	choose: {
+		value: function (chooseAmt) {
+			return combinations(this, chooseAmt).filter((n) => n.length === chooseAmt);
+		},
+	},
+	first: {
+		value: function (fn) {
+			for (const i in this) if (fn(this[i], i, this)) return this[i];
+		},
+	},
 });
 
 Object.defineProperties(String.prototype, {
@@ -182,12 +220,22 @@ Object.defineProperties(String.prototype, {
 			return this.split('\n');
 		},
 	},
+	copy: {
+		value: function () {
+			copy(this);
+		},
+	},
 });
 
 Object.defineProperties(Number.prototype, {
 	sqrt: {
 		value: function () {
 			return Math.sqrt(this);
+		},
+	},
+	copy: {
+		value: function () {
+			copy(this);
 		},
 	},
 });
@@ -212,7 +260,13 @@ Object.defineProperties(Object.prototype, {
 			Error.prepareStackTrace = originalPrepareStackTrace;
 			const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}:${callee.getColumnNumber()}`;
 
-			console.log(prefix, this, 'from', location);
+			prefix ? console.log(prefix, this, 'from', location) : console.log(this, 'from', location);
+			return this; // make it chainable
+		},
+	},
+	cp: {
+		value: function () {
+			copy(this);
 		},
 	},
 });
