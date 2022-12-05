@@ -2,7 +2,8 @@ import { read, readEx } from './util.js';
 
 let data;
 
-const partOne = () => {
+const doStuff = () => {
+	// Instead of copying, I just changed part one :P
 	const lines = data.lines();
 	const total = [];
 	for (const line of lines) {
@@ -32,10 +33,13 @@ const partOne = () => {
 		.filter((l) => l.startsWith('move'))
 		.map((l) => l.match(/move (\d+) from (\d+) to (\d+)/i))
 		.forEach(([, n, f, d]) => {
-            const newValues = total[f - 1].splice(0, n)
-            total[d - 1] = newValues.concat(total[d-1]);
-			// total[d - 1].unshift(total[f - 1].shift());
+			// <Part-Two>
+			const newValues = total[f - 1].splice(0, n);
+			total[d - 1] = newValues.concat(total[d - 1]);
 			total.log();
+			// </Part-Two>
+            
+			// total[d - 1].unshift(total[f - 1].shift()); // Part One
 		});
 	total.log();
 	total
@@ -44,14 +48,10 @@ const partOne = () => {
 		.log();
 };
 
-const partTwo = () => {};
-
 console.log('--- --- Running Sample Data --- ---');
 data = await readEx(); // Sample Data
-partOne();
-partTwo();
+doStuff();
 
 console.log('--- --- Running Real Data --- ---');
 data = await read(); // Real Data
-partOne();
-partTwo();
+doStuff();
