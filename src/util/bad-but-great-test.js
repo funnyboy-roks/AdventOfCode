@@ -48,4 +48,6 @@ const data = '1721\n979\n366\n299\n675\n1456';
 data.lines().numbers().choose(2).first(n => n.sum() === 2020).product().log('1');
 data.lines().numbers().choose(3).first(n => n.sum() === 2020).product().log('2');
 
+'Hayden Pott'.charCount().log();
+
 // grid.get(2, 2).getNeighbours().map(v => v.value).log()

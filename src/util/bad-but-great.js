@@ -251,6 +251,11 @@ Object.defineProperties(Object.prototype, {
 			return Object.keys(this);
 		},
 	},
+	values: {
+		value: function () {
+			return Object.values(this);
+		},
+	},
 	log: {
 		value: function (prefix) {
 			const originalPrepareStackTrace = Error.prepareStackTrace;

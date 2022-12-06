@@ -8,7 +8,13 @@ import V from './util/Vec.js';
 import clipboard from 'clipboardy';
 export const Vec = V;
 
-const day = +process.argv[1].match(/.+?(\d+)\.js$/i)[1];
+const day = (() => {
+	try {
+		return +process.argv[1].match(/.+?(\d+)\.js$/i)[1];
+	} catch (e) {
+		return 0;
+	}
+})();
 
 /**
  * @param {number} dayArg
@@ -69,4 +75,4 @@ export const createMatrix = (width, height, defaultValueCreator) => {
 
 export const copy = (text) => {
 	clipboard.writeSync(text);
-}
+};
