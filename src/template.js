@@ -1,10 +1,11 @@
 import { read, readEx } from './util.js';
 
+await readEx();
+await read();
+
 let data;
 
 const partOne = () => {
-
-	
 
 };
 
@@ -12,14 +13,16 @@ const partTwo = () => {
     
 };
 
-console.log('--- --- Running Sample Data --- ---');
-data = await readEx(); // Sample Data
-partOne();
-partTwo();
+if (process.argv[2]) {
+	console.log('--- --- Running Sample Data --- ---');
+	data = await readEx(); // Sample Data
 
-process.exit(1);
+	partOne();
+    partTwo();
+} else {
+	console.log('--- --- Running Real Data --- ---');
+	data = await read(); // Real Data
 
-console.log('--- --- Running Real Data --- ---');
-data = await read(); // Real Data
-partOne();
-partTwo();
+	partOne();
+    partTwo();
+}
