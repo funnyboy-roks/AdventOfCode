@@ -33,6 +33,15 @@ export default class Vec {
 		this.z += other.z;
 	}
 
+	/**
+	 * @param {number} other
+	 */
+	sub(other) {
+		this.x -= other.x;
+		this.y -= other.y;
+		this.z -= other.z;
+	}
+
     /**
      * @param {Vec} other 
      * @returns {number}
@@ -56,5 +65,9 @@ export default class Vec {
      */
 	manDist(other) {
 		return Math.abs(this.x - other.x) + Math.abs(this.y - other.y) + Math.abs(this.z - other.z);
+	}
+
+	toString() {
+		return this.x + ',' + this.y;
 	}
 }
