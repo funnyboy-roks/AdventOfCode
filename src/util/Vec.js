@@ -70,4 +70,13 @@ export default class Vec {
 	toString() {
 		return this.x + ',' + this.y;
 	}
+
+	equals(other) {
+		return this.x === other.x && this.y === other.y && this.z === other.z;
+	}
+
+	static fromString(string) {
+		const parts = string.split(',').nums();
+		return new Vec(...parts);
+	}
 }
