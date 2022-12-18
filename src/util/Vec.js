@@ -22,6 +22,7 @@ export default class Vec {
 		this.x *= number;
 		this.y *= number;
 		this.z *= number;
+		return this;
 	}
 
 	/**
@@ -31,6 +32,7 @@ export default class Vec {
 		this.x += other.x;
 		this.y += other.y;
 		this.z += other.z;
+		return this;
 	}
 
 	/**
@@ -40,6 +42,7 @@ export default class Vec {
 		this.x -= other.x;
 		this.y -= other.y;
 		this.z -= other.z;
+		return this;
 	}
 
     /**
@@ -68,13 +71,18 @@ export default class Vec {
 	}
 
 	toString() {
-		return this.x + ',' + this.y;
+		return this.x + ',' + this.y + (this.z ? ',' + this.z : '');
 	}
 
 	equals(other) {
 		return this.x === other.x && this.y === other.y && this.z === other.z;
 	}
 
+	/**
+	 * 
+	 * @param {string} string 
+	 * @returns Vec
+	 */
 	static fromString(string) {
 		const parts = string.split(',').nums();
 		return new Vec(...parts);

@@ -69,14 +69,19 @@ Object.defineProperties(Array.prototype, {
 	},
 	max: {
 		value: function (count = 1) {
-			if (count == 1) return Math.max(...this);
+			if (count === 1) return Math.max(...this);
 			return this.sorted(true).slice(0, count);
 		},
 	},
 	min: {
 		value: function (count = 1) {
-			if (count == 1) return Math.min(...this);
+			if (count === 1) return Math.min(...this);
 			return this.sorted().slice(0, count);
+		},
+	},
+	minMax: {
+		value: function (count = 1) {
+			return { min: this.min(count), max: this.max(count) };
 		},
 	},
 	avg: {
