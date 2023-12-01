@@ -1,0 +1,5 @@
+#! /bin/sh
+
+file="./src/day$(printf "%02d" $1).js"
+shift
+node $file $@
