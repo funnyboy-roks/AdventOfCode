@@ -76,3 +76,11 @@ export const createMatrix = (width, height, defaultValueCreator = (x, y) => 0) =
 export const copy = (text) => {
 	clipboard.writeSync(text);
 };
+
+export const time = (fn) => {
+    const start = new Date();
+    fn();
+    const elapsed = new Date() - start;
+
+    console.log(`elapsed: ${elapsed}ms`);
+};
