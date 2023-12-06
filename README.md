@@ -6,6 +6,9 @@ Written in JavaScript
 
 You're welcome to join my private leaderboard if you'd like! `987403-3723c994`
 
+The comments above the functions for each part are the amount of time
+that it took me to solve the part.
+
 ## Days
 
 Obvious spoilers if you intend to solve for yourself.
@@ -13,9 +16,9 @@ Obvious spoilers if you intend to solve for yourself.
 [`01`](./src/day01.js)
 [`02`](./src/day02.js)
 [`03`](./src/day03.js)
-<!-- [`04`](./src/day04.js) -->
-<!-- [`05`](./src/day05.js)   -->
-<!-- [`06`](./src/day06.js) -->
+[`04`](./src/day04.js)
+[`05`](./src/day05.js)  
+[`06`](./src/day06.js)
 <!-- [`07`](./src/day07.js) -->
 <!-- [`08`](./src/day08.js) -->
 <!-- [`09`](./src/day09.js) -->
