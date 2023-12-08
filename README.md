@@ -19,8 +19,8 @@ Obvious spoilers if you intend to solve for yourself.
 [`04`](./src/day04.js)
 [`05`](./src/day05.js)  
 [`06`](./src/day06.js)
-<!-- [`07`](./src/day07.js) -->
-<!-- [`08`](./src/day08.js) -->
+[`07`](./src/day07.js)
+[`08`](./src/day08.js)
 <!-- [`09`](./src/day09.js) -->
 <!-- [`10`](./src/day10.js)   -->
 <!-- [`11`](./src/day11.js) -->
