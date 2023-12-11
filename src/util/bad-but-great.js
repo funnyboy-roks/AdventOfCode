@@ -187,7 +187,14 @@ Object.defineProperties(Array.prototype, {
 			for (const i in this) if (fn(this[i], i, this)) return this[i];
 		},
 	},
-});
+
+    insert: {
+        value: function ( index, ...items ) {
+            this.splice( index, 0, ...items );
+        }
+    }
+}
+);
 
 Object.defineProperties(String.prototype, {
 	matches: {
