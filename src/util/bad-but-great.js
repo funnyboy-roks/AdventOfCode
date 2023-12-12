@@ -192,6 +192,16 @@ Object.defineProperties(Array.prototype, {
         value: function ( index, ...items ) {
             this.splice( index, 0, ...items );
         }
+    },
+
+    repeat: {
+        value: function (n) {
+            let out = [];
+            for (let i = 0; i < n; ++i) {
+                out.push(...this);
+            }
+            return out;
+        }
     }
 }
 );
