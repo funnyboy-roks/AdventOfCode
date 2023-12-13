@@ -247,6 +247,14 @@ Object.defineProperties(String.prototype, {
 			copy(this);
 		},
 	},
+	is_palendrome: {
+		value: function () {
+            for (let i = 0; i < this.length / 2; ++i) {
+                if (this[i] !== this[this.length - i - 1]) return false;
+            }
+            return true;
+		},
+	},
 });
 
 Object.defineProperties(Number.prototype, {
