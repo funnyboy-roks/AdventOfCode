@@ -24,9 +24,9 @@ Obvious spoilers if you intend to solve for yourself.
 [`09`](./src/day09.js)
 [`10`](./src/day10.js)  
 [`11`](./src/day11.js)
-<!-- [`12`](./src/day12.js) -->
-<!-- [`13`](./src/day13.js) -->
-<!-- [`14`](./src/day14.js) -->
+[`12`](./src/day12.js)
+[`13`](./src/day13.js)
+[`14`](./src/day14.js)
 <!-- [`15`](./src/day15.js)   -->
 <!-- [`16`](./src/day16.js) -->
 <!-- [`17`](./src/day17.js) -->
