@@ -27,7 +27,7 @@ Obvious spoilers if you intend to solve for yourself.
 [`12`](./src/day12.js)
 [`13`](./src/day13.js)
 [`14`](./src/day14.js)
-<!-- [`15`](./src/day15.js)   -->
+[`15`](./src/day15.js)  
 <!-- [`16`](./src/day16.js) -->
 <!-- [`17`](./src/day17.js) -->
 <!-- [`18`](./src/day18.js) -->
