@@ -88,6 +88,7 @@ const walk = (grid, hl, x, y, [dx, dy]) => {
     }
 }
 
+// 28:53 -- didn't realise that I'd skipped '\' in `walk` lmao
 const partOne = () => {
     let grid = data.lines();
     let highlight = Array(grid.length).fill(0).map(() => Array(grid[0].length).fill(0));
@@ -115,6 +116,7 @@ const find_entry_points = (grid) => {
     return eps;
 };
 
+// 59:25
 const partTwo = () => {
     let grid = data.lines();
     const entry_points = [...find_entry_points(grid)];
