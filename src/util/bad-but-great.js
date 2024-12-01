@@ -1,19 +1,7 @@
 // This file makes every bone in my body hurt, *this is fine*
 
 import path from 'path';
-import clipboard from 'clipboardy';
-import { spawn } from 'child_process';
 import combinations from 'combinations';
-
-const copy = (value) => {
-	clipboard.writeSync(value + '');
-
-	const proc = spawn('xclip', ['-i']);
-	proc.stdin.write(value + '');
-	proc.stdin.end();
-	setTimeout(() => proc.kill(), 1000);
-	console.log('Done Copying');
-};
 
 Object.defineProperties(Array.prototype, {
 	sum: {

@@ -16,7 +16,7 @@ const day = (() => {
 	}
 })();
 
-const year = new Date().getFullYear();
+const year = 2023; //new Date().getFullYear();
 
 /**
  * @param {number} dayArg
