@@ -5,6 +5,7 @@ import './util/bad-but-great.js';
 await readEx();
 await read();
 
+/** @type string **/
 let data;
 
 const partOne = () => {

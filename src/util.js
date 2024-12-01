@@ -20,6 +20,7 @@ const year = 2023; //new Date().getFullYear();
 
 /**
  * @param {number} dayArg
+ * @returns {Promise<string>}
  */
 export const read = async (dayArg = day) => {
 	let d = (dayArg + '').padStart(2, '0');
@@ -42,6 +43,9 @@ export const read = async (dayArg = day) => {
 	return (await fs.readFile(path, 'utf-8')).trim();
 };
 
+/**
+ * @returns {Promise<string>}
+ */
 export const readEx = async () => {
 	let d = (day + '').padStart(2, '0');
 	const path = `input/day${d}-ex.txt`;
