@@ -11,12 +11,9 @@ If you're interested in joining my private leaderboard, you can join
 
 ## Days
 
-Advent of Code 2024 has not yet started! Check back after 1 December for
-my solutions.
+Obviously spoiler alert if you intend to solve for yourself.
 
-<!-- Obvious spoilers if you intend to solve for yourself. -->
-
-<!-- [`01`](./src/day01.js) -->
+[`01`](./src/day01.js)
 <!-- [`02`](./src/day02.js) -->
 <!-- [`03`](./src/day03.js) -->
 <!-- [`04`](./src/day04.js) -->

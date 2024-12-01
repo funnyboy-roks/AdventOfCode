@@ -8,10 +8,26 @@ await read();
 /** @type string **/
 let data;
 
+// 01:58
 const partOne = () => {
+    const lines = data.lines().map(l => l.split(/\s+/).map(n => +n));
+    const lmin = lines.map(a => a[0]).sort();
+    const rmin = lines.map(a => a[1]).sort();
+    console.log(lmin.map((n, i) => Math.abs(n - rmin[i])).sum());
 };
 
+// 03:52
 const partTwo = () => {
+    const lines = data.lines().map(l => l.split(/\s+/).map(n => +n));
+    const lmin = lines.map(a => a[0]);
+    const rmin = lines.map(a => a[1]);
+    let sum = 0;
+    for (const n of lmin) {
+        let count = rmin.filter(r => r === n).length;
+        console.log(n, count);
+        sum += count * n;
+    }
+    console.log(sum);
 };
 
 if (process.argv[2]) {
