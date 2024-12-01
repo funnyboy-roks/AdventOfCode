@@ -44,10 +44,21 @@ import Grid from './Grid.js';
 // [1, 2, 3, 4].choose(2).log();
 
 // 2020 Day 1 Solution in 1 lines.
-const data = '1721\n979\n366\n299\n675\n1456';
-data.lines().numbers().choose(2).first(n => n.sum() === 2020).product().log('1');
-data.lines().numbers().choose(3).first(n => n.sum() === 2020).product().log('2');
-
-'Hayden Pott'.charCount().log();
+// const data = '1721\n979\n366\n299\n675\n1456';
+// data.lines().numbers().choose(2).first(n => n.sum() === 2020).product().log('1');
+// data.lines().numbers().choose(3).first(n => n.sum() === 2020).product().log('2');
+// 
+// 'Hayden Pott'.charCount().log();
 
 // grid.get(2, 2).getNeighbours().map(v => v.value).log()
+
+const data = '3   4\n4   3\n2   5\n1   3\n3   9\n3   3'
+// 2024 Day 1 Solution in 1 line:
+data.lines()
+    .map(l => l.split(/\s+/).map(n => +n))
+    .unzip()
+    .map((a) => a.sort())
+    .zip()
+    .map(([l,r]) => Math.abs(l - r))
+    .sum()
+    .log('Part One');

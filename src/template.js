@@ -1,6 +1,6 @@
 import { read, readEx } from './util.js';
 import Vec from './util/Vec.js';
-import './util/bad-but-great.js';
+import './util/protype-shenanigans.js';
 
 await readEx();
 await read();

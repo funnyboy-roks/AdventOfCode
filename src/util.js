@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import { JSDOM } from 'jsdom';
-import './util/bad-but-great.js';
+import './util/protype-shenanigans.js';
 import { existsSync } from 'fs';
 import env from '../.env.js';
 

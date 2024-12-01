@@ -175,13 +175,11 @@ Object.defineProperties(Array.prototype, {
 			for (const i in this) if (fn(this[i], i, this)) return this[i];
 		},
 	},
-
     insert: {
         value: function ( index, ...items ) {
             this.splice( index, 0, ...items );
         }
     },
-
     repeat: {
         value: function (n) {
             let out = [];
@@ -190,7 +188,28 @@ Object.defineProperties(Array.prototype, {
             }
             return out;
         }
-    }
+    },
+    unzip: {
+        value: function() {
+            const left = [];
+            const right = [];
+            this.forEach(([l, r]) => {
+                left.push(l)
+                right.push(r)
+            });
+            return [left, right];
+        }
+    },
+    zip: {
+        value: function(other=undefined) {
+            if (other) {
+                return this.map((n, i) => [n, other[i]]);
+            } else {
+                const [left, right] = this;
+                return left.map((l, i) => [l, right[i]]);
+            }
+        }
+    },
 }
 );
 
@@ -283,7 +302,7 @@ Object.defineProperties(Object.prototype, {
 			Error.prepareStackTrace = originalPrepareStackTrace;
 			const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}:${callee.getColumnNumber()}`;
 
-			prefix ? console.log(prefix, this, 'from', location) : console.log(this, 'from', location);
+			prefix ? console.log(location, `[${prefix}]`, this) : console.log(location, this);
 			return this; // make it chainable
 		},
 	},
