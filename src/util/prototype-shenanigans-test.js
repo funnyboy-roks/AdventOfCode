@@ -53,6 +53,7 @@ import Grid from './Grid.js';
 // grid.get(2, 2).getNeighbours().map(v => v.value).log()
 
 const data = '3   4\n4   3\n2   5\n1   3\n3   9\n3   3'
+data.lines().unique().split().log();
 // 2024 Day 1 Solution in 1 line:
 data.lines()
     .map(l => l.split(/\s+/).map(n => +n))

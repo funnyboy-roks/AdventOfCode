@@ -3,6 +3,8 @@
 import path from 'path';
 import combinations from 'combinations';
 
+const string_split = String.prototype.split;
+
 Object.defineProperties(Array.prototype, {
 	sum: {
 		value: function () {
@@ -187,6 +189,11 @@ Object.defineProperties(Array.prototype, {
                 out.push(...this);
             }
             return out;
+        }
+    },
+    unique: {
+        value: function () {
+            return [...new Set(this)];
         }
     },
     unzip: {
