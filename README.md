@@ -14,7 +14,7 @@ If you're interested in joining my private leaderboard, you can join
 Obviously spoiler alert if you intend to solve for yourself.
 
 [`01`](./src/day01.js)
-<!-- [`02`](./src/day02.js) -->
+[`02`](./src/day02.js)
 <!-- [`03`](./src/day03.js) -->
 <!-- [`04`](./src/day04.js) -->
 <!-- [`05`](./src/day05.js)   -->
