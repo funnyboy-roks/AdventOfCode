@@ -3,7 +3,11 @@
 import path from 'path';
 import combinations from 'combinations';
 
-const string_split = String.prototype.split;
+const console_error = console.error;
+/** @type (message?: any, ...optionalParams: any[]): void */
+console.error = (...args) => {
+    console_error(`\u001b[31m${args[0]}`, ...args.slice(1), '\u001b[0m');
+}
 
 Object.defineProperties(Array.prototype, {
 	sum: {
