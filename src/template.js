@@ -1,6 +1,7 @@
 import { read, readEx } from './util.js';
 import Vec from './util/Vec.js';
 import './util/prototype-shenanigans.js';
+/** @typedef {import('./types.d.ts')} */
 
 await readEx();
 await read();
