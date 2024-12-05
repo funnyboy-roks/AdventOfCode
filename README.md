@@ -17,7 +17,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 [`02`](./src/day02.js)
 [`03`](./src/day03.js)
 [`04`](./src/day04.js)
-<!-- [`05`](./src/day05.js)   -->
+[`05`](./src/day05.js)   
 <!-- [`06`](./src/day06.js) -->
 <!-- [`07`](./src/day07.js) -->
 <!-- [`08`](./src/day08.js) -->
