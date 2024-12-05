@@ -9,15 +9,14 @@ await read();
 /** @type string **/
 let data;
 
+// 00:05:09
 const partOne = () => {
     let [rules, updates] = data.lines().split('');
     rules = rules.map(r => r.split('|').nums());
     updates = updates.map(u => u.split`,`.nums())
 
-    // console.log({rules});
     let count = 0;
     for (const update of updates) {
-        // console.log({update});
         let valid = true;
         for (const [a, b] of rules) {
             if (update.includes(a) && update.includes(b)) {
@@ -36,15 +35,14 @@ const partOne = () => {
     console.log(count);
 };
 
+// 00:09:06
 const partTwo = () => {
     let [rules, updates] = data.lines().split('');
     rules = rules.map(r => r.split('|').nums());
     updates = updates.map(u => u.split`,`.nums())
 
-    // console.log({rules});
     let count = 0;
     for (const update of updates) {
-        // console.log({update});
         let valid = true;
         for (const [a, b] of rules) {
             if (update.includes(a) && update.includes(b)) {
@@ -66,7 +64,6 @@ const partTwo = () => {
             return 0;
         };
         if (!valid) {
-            // console.log('->', update.sort(order));
             count += update.sort(order)[Math.floor(update.length / 2)];
         }
     }
