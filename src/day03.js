@@ -1,12 +1,10 @@
-import { read, readEx } from './util.js';
-import Vec from './util/Vec.js';
+import { read, readEx } from './util.ts';
 import './util/prototype-shenanigans.js';
-/** @typedef {import('./types.d.ts')} */
+import './types.d.ts';
 
 await readEx();
 await read();
 
-/** @type string **/
 let data;
 
 // 00:02:50
@@ -33,7 +31,7 @@ const partTwo = () => {
     console.log(sum);
 };
 
-if (process.argv[2]) {
+if (Deno.args[0]) {
 	console.log('Sample Data:');
 	data = await readEx();
     console.log(data.lines().map(l => '    ' + l).join`\n`)

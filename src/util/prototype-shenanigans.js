@@ -1,6 +1,6 @@
 // This file makes every bone in my body hurt, *this is fine*
 
-import path from 'path';
+import path from 'node:path';
 import combinations from 'combinations';
 
 const console_error = console.error;

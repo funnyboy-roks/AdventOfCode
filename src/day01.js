@@ -1,5 +1,4 @@
-import { read, readEx } from './util.js';
-import Vec from './util/Vec.js';
+import { read, readEx } from './util.ts';
 import './util/prototype-shenanigans.js';
 
 await readEx();
@@ -24,13 +23,13 @@ const partTwo = () => {
     let sum = 0;
     for (const n of lmin) {
         let count = rmin.filter(r => r === n).length;
-        console.error(n, count);
+        // console.error(n, count);
         sum += count * n;
     }
     console.log(sum);
 };
 
-if (process.argv[2]) {
+if (Deno.args[0]) {
 	console.log('Sample Data:');
 	data = await readEx();
     console.log(data.lines().map(l => '    ' + l).join`\n`)

@@ -1,7 +1,7 @@
 import { read, readEx } from './util.ts';
 import Vec from './util/Vec.ts';
 import './util/prototype-shenanigans.js';
-/** @typedef {import('./types.d.ts')} */
+import './types.d.ts';
 
 await readEx();
 await read();
@@ -9,7 +9,6 @@ await read();
 /** @type string **/
 let data;
 
-// 00:07:05
 const partOne = () => {
     const grid = data.lines().map(l => l.split``);
     let pos;
@@ -24,22 +23,15 @@ const partOne = () => {
     }
 
     console.log(pos);
-    let dir = new Vec(0, -1);
+    const dir = Vec.up();
 
     while (true) {
-        let n = pos.clone().add(dir);
-        if (!grid[n.y]?.[n.x]) break;
-        if (grid[n.y][n.x] === '#') {
-            if (dir.x === 0 && dir.y === -1) {
-                dir = new Vec(1, 0);
-            } else if (dir.x === 0 && dir.y === 1) {
-                dir = new Vec(-1, 0);
-            } else if (dir.x === -1 && dir.y === 0) {
-                dir = new Vec(0, -1);
-            } else if (dir.x === 1 && dir.y === 0) {
-                dir = new Vec(0, 1);
-            }
-        } else {
+        const n = pos.clone().add(dir);
+        if (!grid[n.y]?.[n.x])
+            break;
+        else if (grid[n.y][n.x] === '#') 
+            dir.turnRight();
+        else {
             grid[n.y][n.x] = 'x';
             pos = n;
         }
@@ -48,7 +40,6 @@ const partOne = () => {
     console.log(grid.map(l => l.filter(s => s === 'x').length).sum());
 };
 
-// 00:15:07
 const partTwo = () => {
     let grid = data.lines().map(l => l.split``);
     let init;
@@ -67,45 +58,27 @@ const partTwo = () => {
     for (let y = 0; y < grid.length; ++y) {
         const row = grid[y];
         for (let x = 0; x < row.length; ++x) {
-            let dir = new Vec(0, -1);
+            const dir = Vec.up();
             let pos = init;
             grid[y][x] = '$';
 
             let loop = false;
             while (true) {
-                let n = pos.clone().add(dir);
+                const n = pos.clone().add(dir);
                 const c = grid[n.y]?.[n.x];
                 if (!c) break;
                 if (c === '#' || c === '$') {
-                    if (dir.x === 0 && dir.y === -1) {
-                        dir = new Vec(1, 0);
-                    } else if (dir.x === 0 && dir.y === 1) {
-                        dir = new Vec(-1, 0);
-                    } else if (dir.x === -1 && dir.y === 0) {
-                        dir = new Vec(0, -1);
-                    } else if (dir.x === 1 && dir.y === 0) {
-                        dir = new Vec(0, 1);
-                    }
+                    dir.turnRight();
                 } else if (
-                    c === 'u' && dir.x === 0 && dir.y === -1
-                    || c === 'd' && dir.x === 0 && dir.y === 1
-                    || c === 'l' && dir.x === -1 && dir.y === 0
-                    || c === 'r' && dir.x === 1 && dir.y === 0
+                    c === 'u' && dir.isUp()
+                    || c === 'd' && dir.isDown()
+                    || c === 'l' && dir.isLeft()
+                    || c === 'r' && dir.isRight()
                 ) {
                     loop = true;
                     break;
                 } else {
-                    let c;
-                    if (dir.x === 0 && dir.y === -1) {
-                        c = 'u'
-                    } else if (dir.x === 0 && dir.y === 1) {
-                        c = 'd'
-                    } else if (dir.x === -1 && dir.y === 0) {
-                        c = 'l'
-                    } else if (dir.x === 1 && dir.y === 0) {
-                        c = 'r'
-                    }
-                    grid[n.y][n.x] = c;
+                    grid[n.y][n.x] = dir.getDirection()[0];
                     pos = n;
                 }
             }

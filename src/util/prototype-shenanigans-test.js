@@ -1,4 +1,4 @@
-import { loadRaw } from '../util.js';
+import { loadRaw } from '../util.ts';
 import Grid from './Grid.js';
 
 // let raw = loadRaw(1);
