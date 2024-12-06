@@ -2,7 +2,7 @@
 
 My code for [Advent of Code](https://adventofcode.com/2024) 2024
 
-Written in JavaScript
+Written in JavaScript/TypeScript using [Deno](https://deno.com)
 
 If you're interested in joining my private leaderboard, you can join
 [here] with the code: `987403-3723c994`
@@ -18,7 +18,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 [`03`](./src/day03.js)
 [`04`](./src/day04.js)
 [`05`](./src/day05.js)   
-<!-- [`06`](./src/day06.js) -->
+[`06`](./src/day06.js)
 <!-- [`07`](./src/day07.js) -->
 <!-- [`08`](./src/day08.js) -->
 <!-- [`09`](./src/day09.js) -->
