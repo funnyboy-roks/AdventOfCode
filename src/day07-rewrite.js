@@ -34,7 +34,7 @@ const partOne = () => {
     }
     const ret = lines.filter(([t, l]) => f(l, t).includes(t))
         .map(l => l[0])
-        .reduce((a, b) => a + b, 0n)
+        .sum(0n)
     console.log(ret);
 };
 
@@ -73,7 +73,7 @@ const partTwo = () => {
     // }
     const ret = lines.filter(([t, l]) => f2(l, t).includes(t))
         .map(l => l[0])
-        .reduce((a, b) => a + b, 0n)
+        .sum(0n)
     console.log(ret);
 };
 

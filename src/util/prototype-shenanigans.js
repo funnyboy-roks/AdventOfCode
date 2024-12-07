@@ -11,28 +11,33 @@ console.error = (...args) => {
 
 Object.defineProperties(Array.prototype, {
 	sum: {
-		value: function () {
-			return this.reduce((a, b) => a + b, 0);
+		value: function (start = 0) {
+			return this.reduce((a, b) => a + b, start);
 		},
 	},
 	product: {
-		value: function () {
-			return this.reduce((a, b) => a * b, 1);
+		value: function (start = 1) {
+			return this.reduce((a, b) => a * b, start);
 		},
 	},
 	prod: {
+		value: function (start = 1) {
+			return this.reduce((a, b) => a * b, start);
+		},
+	},
+	bigints: {
 		value: function () {
-			return this.reduce((a, b) => a * b, 1);
+			return this.map(BigInt);
 		},
 	},
 	numbers: {
 		value: function () {
-			return this.map((n) => +n);
+			return this.map(Number);
 		},
 	},
 	nums: {
 		value: function () {
-			return this.map((n) => +n);
+			return this.map(Number);
 		},
 	},
 	strings: {

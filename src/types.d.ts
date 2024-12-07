@@ -1,7 +1,7 @@
 declare interface Array<T> {
-    sum(): T;
-    product(): T;
-    prod(): T;
+    sum(start?: T): T;
+    product(start?: T): T;
+    prod(start?: T): T;
     numbers(): number[];
     nums(): number[];
     strings(): string[];
