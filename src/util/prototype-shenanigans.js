@@ -188,7 +188,7 @@ Object.defineProperties(Array.prototype, {
     },
     repeat: {
         value: function (n) {
-            let out = [];
+            const out = [];
             for (let i = 0; i < n; ++i) {
                 out.push(...this);
             }
@@ -199,6 +199,18 @@ Object.defineProperties(Array.prototype, {
         value: function () {
             return [...new Set(this)];
         }
+    },
+    filter_map: {
+        value: function(fn) {
+            const out = []
+            this.forEach((t, i, a) => {
+                const y = fn(t, i, a);
+                if (y !== undefined) {
+                    out.push(y);
+                }
+            });
+            return out;
+        },
     },
     unzip: {
         value: function() {

@@ -7,7 +7,7 @@ declare interface Array<T> {
     strings(): string[];
     strs(): string[];
     deduped(): T[];
-    counts(): { [key in typeof this]: number };
+    counts(): { [key in this]: number };
     max(): T;
     min(): T;
     minMax(): { min: T, max: T };
@@ -25,10 +25,11 @@ declare interface Array<T> {
     permute(): T[];
     chunk(size: number): T[][];
     choose(chooseAmt: number): T[][];
-    first(fn: (t: T, i: number, array: typeof this) => T | undefined): T[][];
+    first(fn: (t: T, i: number, array: this) => T | undefined): T[][];
     insert(index: number, ...items: T[]): void;
     repeat(n: number): T[];
     unique(): T[];
+    filter_map<T>(fn: <T>(t: this[number], i: number, array: this) => T | undefined): T[];
 
     /**
      * Converts from `[A,B][]` to `[A[], B[]]`
@@ -49,7 +50,7 @@ declare interface Array<T> {
     zip<U>(other: U[]): [T, U][];
 
     // Make map handle tuples a bit
-    map<U>(mapper: (a: T, i: number, array: typeof this) => U): this extends [T, T] ? [U, U] : U[];
+    map<U>(mapper: (a: T, i: number, array: this) => U): this extends [T, T] ? [U, U] : U[];
 }
 
 declare interface String {
