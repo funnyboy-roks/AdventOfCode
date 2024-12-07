@@ -1,15 +1,17 @@
 import { JSDOM } from 'jsdom';
 import './util/prototype-shenanigans.js';
-import { existsSync } from 'node:fs';
 import env from '../.env.js';
-import process from 'node:process';
-
-import V from './util/Vec.ts';
-import clipboard from 'clipboardy';
-export const Vec = V;
 
 const day = +Deno.mainModule.match(/.+?(\d+)(.*)\.js$/i)![1];
 const year = new Date().getFullYear();
+
+export const debug = !!Deno.args[0];
+
+const console_debug = console.debug;
+console.debug = (...args) => {
+    if (debug) console_debug(...args);
+};
+console.dbg = console.debug;
 
 const exists = async (file: string) => {
     try {
@@ -38,7 +40,7 @@ export const read = async (dayArg: number = day): Promise<string> => {
 
 		if (res.status === 404) {
             console.error('This day has not started yet!');
-            process.exit(1);
+            Deno.exit(1);
         }
 
 		const text = (await res.text()).trim();
@@ -52,7 +54,7 @@ export const read = async (dayArg: number = day): Promise<string> => {
 export const readEx = async (): Promise<string> => {
 	const d = (day + '').padStart(2, '0');
 	const path = `input/day${d}-ex.txt`;
-	if (!existsSync(path)) {
+	if (!await exists(path)) {
 		console.log(`Downloading Day ${day} example input`);
 
 		const res = await fetch(`https://adventofcode.com/${year}/day/${day}`, {
@@ -64,7 +66,7 @@ export const readEx = async (): Promise<string> => {
 
 		if (res.status === 404) {
             console.error('This day has not started yet!');
-            process.exit(1);
+            Deno.exit(1);
         }
 		const text = (await res.text()).trim();
 
@@ -76,7 +78,7 @@ export const readEx = async (): Promise<string> => {
 		if (textContent) await Deno.writeTextFile(path, textContent);
 		else {
             console.error('Invalid Text Content from', ex);
-            process.exit(1);
+            Deno.exit(1);
         }
 		return textContent.trim();
 	}
@@ -85,10 +87,6 @@ export const readEx = async (): Promise<string> => {
 
 export const createMatrix = (width: number, height: number, defaultValueCreator = (_x: number, _y: number) => 0) => {
 	return new Array(height).fill(0).map((y) => new Array(width).fill(0).map((x) => defaultValueCreator(x, y)));
-};
-
-export const copy = (text: string) => {
-	clipboard.writeSync(text);
 };
 
 export const time = (fn: () => void) => {

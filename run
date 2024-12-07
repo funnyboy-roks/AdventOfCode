@@ -6,5 +6,4 @@ if [ $# -lt 1 ]; then
 fi
 file="./src/day$(printf "%02d" $1).js"
 shift
-# NOTE: --no-deprecation is here because `punycode` through `jsdom` is annoying
 exec deno -A $file $@

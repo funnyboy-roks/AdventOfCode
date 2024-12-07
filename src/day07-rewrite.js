@@ -1,4 +1,4 @@
-import { read, readEx } from './util.ts';
+import { read, readEx, debug } from './util.ts';
 import Vec from './util/Vec.ts';
 import './util/prototype-shenanigans.js';
 import './types.d.ts';
@@ -21,9 +21,9 @@ const f = (e) => {
 
 const partOne = () => {
     const lines = data.lines().map(l => l.split(': ')).map(([l,r]) => [BigInt(l), r.split(' ').map(BigInt)]);
-    console.log(lines);
+    console.debug(lines);
     for (const [t, l] of lines) {
-        console.log(`f(${l}): ${t} =`, f(l))
+        console.debug(`f(${l}): ${t} =`, f(l))
     }
     const ret = lines.filter(([t, l]) => f(l).includes(t))
         .map(l => l[0])
@@ -63,10 +63,10 @@ const partTwo = () => {
     console.log(ret);
 };
 
-if (Deno.args[0]) {
+if (debug) {
 	console.log('Sample Data:');
 	data = await readEx();
-    console.log(data.lines().map(l => '    ' + l).join`\n`)
+    console.log(data.lines().map(l => '    ' + l).join`\n`);
 } else {
 	console.log('Real Data');
 	data = await read();

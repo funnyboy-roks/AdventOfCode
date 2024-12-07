@@ -75,3 +75,7 @@ declare interface Object {
     log(prefix?: string): void;
     cp(): void;
 }
+
+declare interface Console {
+    dbg(...args: unknown[]): void;
+}
