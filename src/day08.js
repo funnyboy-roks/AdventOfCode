@@ -9,6 +9,7 @@ await read();
 /** @type string **/
 let data;
 
+// 00:13:47
 const partOne = () => {
     const grid = data.lines().map(l => l.split``);
     const a = {};
@@ -40,6 +41,7 @@ const partOne = () => {
     console.log(grid.map(l => l.filter(c => c === '#').length).sum());
 };
 
+// 00:19:19
 const partTwo = () => {
     const grid = data.lines().map(l => l.split``);
     const a = {};
