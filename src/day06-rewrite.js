@@ -23,7 +23,7 @@ const partOne = () => {
     }
 
     console.log(pos);
-    const dir = Vec.up();
+    const dir = Vec.UP;
 
     while (true) {
         const n = pos.clone().add(dir);
@@ -58,7 +58,7 @@ const partTwo = () => {
     for (let y = 0; y < grid.length; ++y) {
         const row = grid[y];
         for (let x = 0; x < row.length; ++x) {
-            const dir = Vec.up();
+            const dir = Vec.UP;
             let pos = init;
             grid[y][x] = '$';
 

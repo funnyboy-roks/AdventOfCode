@@ -1,4 +1,4 @@
-import { read, readEx, debug, time } from './util.ts';
+import { read, readEx, debug, time, assert_eq } from './util.ts';
 import Vec from './util/Vec.ts';
 import './util/prototype-shenanigans.js';
 import './types.d.ts';
@@ -27,15 +27,15 @@ const f = (e, target) => {
 };
 
 const partOne = () => {
-    const lines = data.lines().map(l => l.split(': ')).map(([l,r]) => [BigInt(l), r.split(' ').map(BigInt)]);
+    const lines = data.lines().map(l => l.split(': ')).map(([l,r]) => [+l, r.split(' ').nums()]);
     console.debug(lines);
     for (const [t, l] of lines) {
         console.debug(`f(${l}): ${t} =`, f(l, t))
     }
     const ret = lines.filter(([t, l]) => f(l, t).includes(t))
         .map(l => l[0])
-        .sum(0n)
-    console.log(ret);
+        .sum()
+    return ret;
 };
 
 const f2 = (e, target) => {
@@ -55,26 +55,21 @@ const f2 = (e, target) => {
             return y <= target ? y : undefined;
         });
         const concat = F.filter_map(n => {
-            const y = BigInt(n.toString() + v.toString());
+            const y = 10 ** v.digits() * n + v;
             return y <= target ? y : undefined;
         });
         return mult.concat(sum).concat(concat);
     }
 };
 
-// ~40x faster than original
+// ~100x faster than original
 const partTwo = () => {
-    const lines = data.lines().map(l => l.split(': ')).map(([l,r]) => [BigInt(l), r.split(' ').map(BigInt)]);
-    console.log(lines);
-    // const test = lines.find(l => l[0] === 192n);
-    // console.log(test);
-    // for (const [t, l] of [test]) {
-    //     console.log(`f(${l}): ${t} =`, f2(l))
-    // }
+    const lines = data.lines().map(l => l.split(': ')).map(([l,r]) => [+l, r.split(' ').nums()]);
+    console.debug(lines);
     const ret = lines.filter(([t, l]) => f2(l, t).includes(t))
         .map(l => l[0])
-        .sum(0n)
-    console.log(ret);
+        .sum()
+    return ret;
 };
 
 if (debug) {
@@ -86,5 +81,10 @@ if (debug) {
 	data = await read();
 }
 console.log('Output:');
-time(partOne);
-time(partTwo);
+if (debug) {
+    assert_eq(3749, time(partOne));
+    assert_eq(11387, time(partTwo));
+} else {
+    assert_eq(3312271365652, time(partOne));
+    assert_eq(509463489296712, time(partTwo));
+}

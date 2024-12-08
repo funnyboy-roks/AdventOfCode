@@ -3,12 +3,6 @@
 import path from 'node:path';
 import combinations from 'combinations';
 
-const console_error = console.error;
-/** @type (message?: any, ...optionalParams: any[]): void */
-console.error = (...args) => {
-    console_error(`\u001b[31m${args[0]}`, ...args.slice(1), '\u001b[0m');
-}
-
 Object.defineProperties(Array.prototype, {
 	sum: {
 		value: function (start = 0) {
@@ -301,6 +295,18 @@ Object.defineProperties(Number.prototype, {
 	copy: {
 		value: function () {
 			copy(this);
+		},
+	},
+	digits: {
+        value: function (base = 10) {
+            let n = 0;
+            let t; t = this;
+            if (t % 1) throw new Error(`can't get digits of float: ${t}`);
+            while (t > 0) {
+                n += 1;
+                t = Math.floor(t / base);
+            }
+            return n;
 		},
 	},
 });

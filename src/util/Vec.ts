@@ -1,51 +1,68 @@
 import '../types.d.ts';
 
 export default class Vec {
-    static #UP    = new Vec( 0, -1);
-    static #DOWN  = new Vec( 0,  1);
-    static #LEFT  = new Vec(-1,  0);
-    static #RIGHT = new Vec( 1,  0);
-
-    static up    = () => Vec.#UP.clone();
-    static down  = () => Vec.#DOWN.clone();
-    static left  = () => Vec.#LEFT.clone();
-    static right = () => Vec.#RIGHT.clone();
+    static ZERO  = new Vec( 0,  0);
+    static UP    = new Vec( 0, -1);
+    static DOWN  = new Vec( 0,  1);
+    static LEFT  = new Vec(-1,  0);
+    static RIGHT = new Vec( 1,  0);
 
 	constructor(
-        public x: number,
-        public y: number,
-        public z: number = 0,
+        public readonly x: number,
+        public readonly y: number,
+        public readonly z: number = 0,
     ) {}
 
-	clone() {
-		return new Vec(this.x, this.y, this.z);
-	}
+    with_x(x: number) {
+        return new Vec(
+            x,
+            this.y,
+            this.z,
+        );
+    }
 
-	copyFrom(other: Vec) {
-        this.x = other.x;
-        this.y = other.y;
-        this.z = other.z;
-	}
+    with_y(y: number) {
+        return new Vec(
+            this.x,
+            y,
+            this.z,
+        );
+    }
+
+    with_z(z: number) {
+        return new Vec(
+            this.x,
+            this.y,
+            z,
+        );
+    }
+
+    to(other: Vec) {
+        return other.sub(this);
+    }
 
 	mult(n: number) {
-		this.x *= n;
-		this.y *= n;
-		this.z *= n;
-		return this;
+        return new Vec(
+            this.x * n,
+            this.y * n,
+            this.z * n,
+        );
 	}
 
 	add(other: Vec) {
-		this.x += other.x;
-		this.y += other.y;
-		this.z += other.z;
-		return this;
+        return new Vec(
+            this.x + other.x,
+            this.y + other.y,
+            this.z + other.z,
+        );
 	}
 
 	sub(other: Vec) {
-		this.x -= other.x;
-		this.y -= other.y;
-		this.z -= other.z;
-		return this;
+        return new Vec(
+            this.x - other.x,
+            this.y - other.y,
+            this.z - other.z,
+        );
 	}
 
 	distSq(other: Vec) {
@@ -55,6 +72,19 @@ export default class Vec {
 	dist(other: Vec) {
 		return this.distSq(other).sqrt();
 	}
+
+	lenSq() {
+		return this.x ** 2 + this.y ** 2 + this.z ** 2;
+	}
+
+	len() {
+        const lenSq = this.lenSq();
+        if (lenSq === 1 || lenSq === 0) return lenSq;
+		return lenSq.sqrt();
+	}
+
+	magSq() { return this.lenSq(); }
+	mag() { return this.len(); }
 
     /**
      * Manhattan distance from this point to the other
@@ -73,47 +103,49 @@ export default class Vec {
 
     isUp() {
         if (this.z !== 0) throw new Error('z must be 0 for isUp');
-        return this.x === Vec.#UP.x && this.y === Vec.#UP.y;
+        return this.x === 0 && this.y < 0;
     }
 
     isDown() {
         if (this.z !== 0) throw new Error('z must be 0 for isDown');
-        return this.x === Vec.#DOWN.x && this.y === Vec.#DOWN.y;
+        return this.x === 0 && this.y > 0;
     }
 
     isLeft() {
         if (this.z !== 0) throw new Error('z must be 0 for isLeft');
-        return this.x === Vec.#LEFT.x && this.y === Vec.#LEFT.y;
+        return this.x > 0 && this.y === 0;
     }
 
     isRight() {
         if (this.z !== 0) throw new Error('z must be 0 for isRight');
-        return this.x === Vec.#RIGHT.x && this.y === Vec.#RIGHT.y;
+        return this.x < 0 && this.y === 0;
     }
 
     turnRight() {
+        const mag = this.mag();
         if (this.isUp()) {
-            this.copyFrom(Vec.#RIGHT);
+            return Vec.RIGHT.mult(mag);
         } else if (this.isRight()) {
-            this.copyFrom(Vec.#DOWN);
+            return Vec.DOWN.mult(mag);
         } else if (this.isDown()) {
-            this.copyFrom(Vec.#LEFT);
+            return Vec.LEFT.mult(mag);
         } else if (this.isLeft()) {
-            this.copyFrom(Vec.#UP);
+            return Vec.UP.mult(mag);
         } else {
             throw new Error('turnRight only implemented for up/down/left/right');
         }
     }
 
     turnLeft() {
+        const mag = this.mag();
         if (this.isUp()) {
-            this.copyFrom(Vec.#LEFT);
+            return Vec.LEFT.mult(mag);
         } else if (this.isLeft()) {
-            this.copyFrom(Vec.#DOWN);
+            return Vec.DOWN.mult(mag);
         } else if (this.isDown()) {
-            this.copyFrom(Vec.#RIGHT);
+            return Vec.RIGHT.mult(mag);
         } else if (this.isRight()) {
-            this.copyFrom(Vec.#UP);
+            return Vec.UP.mult(mag);
         } else {
             throw new Error('turnLeft only implemented for up/down/left/right');
         }

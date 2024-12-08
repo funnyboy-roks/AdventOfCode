@@ -28,10 +28,10 @@ const partOne = () => {
         console.debug({ freq, atns });
         for (const a of atns) {
             for (const b of atns) {
-                const ab = b.clone().sub(a);
+                const ab = b.sub(a);
                 if (ab.x === 0 && ab.y === 0) continue;
                 console.debug({a, b, ab});
-                const n = Vec.zero().sub(ab).add(a);
+                const n = Vec.ZERO.sub(ab).add(a);
                 if (!grid[n.y]?.[n.x]) continue;
                 grid[n.y][n.x] = '#';
             }
@@ -61,14 +61,14 @@ const partTwo = () => {
         let i = 0;
         for (const a of atns) {
             for (const b of atns) {
-                const ab = b.clone().sub(a);
+                const ab = a.to(b);
                 if (ab.x === 0 && ab.y === 0) continue;
-                console.debug({i, a, b, ab});
-                const n = a.clone();
-                const d = Vec.zero().sub(ab);
+                // console.debug({i, a, b, ab});
+                let n = a;
+                const d = Vec.ZERO.sub(ab);
                 while (true) {
-                    n.add(d);
-                    console.debug({n, a, d});
+                    n = n.add(d);
+                    // console.debug({n, a, d});
                     if (!grid[n.y]?.[n.x]) break;
                     grid[n.y][n.x] = '#';
                 }

@@ -2,12 +2,16 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@std/fmt": "jsr:@std/fmt@1.0.3",
       "jsr:@std/path": "jsr:@std/path@1.0.8",
       "npm:combinations@^1.0.0": "npm:combinations@1.0.0",
       "npm:itertools@^2.3.2": "npm:itertools@2.3.2",
       "npm:jsdom@^25.0.1": "npm:jsdom@25.0.1"
     },
     "jsr": {
+      "@std/fmt@1.0.3": {
+        "integrity": "97765c16aa32245ff4e2204ecf7d8562496a3cb8592340a80e7e554e0bb9149f"
+      },
       "@std/path@1.0.8": {
         "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
       }

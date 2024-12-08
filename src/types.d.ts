@@ -67,6 +67,7 @@ declare interface String {
 declare interface Number {
     sqrt(): number;
     copy(): void;
+    digits(base?: number): number;
 }
 
 declare interface Object {
@@ -79,4 +80,5 @@ declare interface Object {
 
 declare interface Console {
     dbg(...args: unknown[]): void;
+    success(...args: unknown[]): void;
 }

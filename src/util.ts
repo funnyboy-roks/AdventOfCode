@@ -1,6 +1,7 @@
 import { JSDOM } from 'jsdom';
 import './util/prototype-shenanigans.js';
 import env from '../.env.js';
+import { format } from '@std/fmt/duration';
 
 const day = +Deno.mainModule.match(/.+?(\d+)(.*)\.js$/i)![1];
 const year = new Date().getFullYear();
@@ -12,6 +13,15 @@ console.debug = (...args) => {
     if (debug) console_debug(...args);
 };
 console.dbg = console.debug;
+
+const console_error = console.error;
+console.error = (...args: unknown[]) => {
+    console_error(`\u001b[31m${args[0]}`, ...args.slice(1), '\u001b[0m');
+}
+
+console.success = (...args: unknown[]) => {
+    console.log(`\u001b[32m${args[0]}`, ...args.slice(1), '\u001b[0m');
+}
 
 const exists = async (file: string) => {
     try {
@@ -89,10 +99,22 @@ export const createMatrix = (width: number, height: number, defaultValueCreator 
 	return new Array(height).fill(0).map((y) => new Array(width).fill(0).map((x) => defaultValueCreator(x, y)));
 };
 
-export const time = (fn: () => void) => {
-    const start = new Date().valueOf();
-    fn();
-    const elapsed = new Date().valueOf() - start;
-
-    console.log(`elapsed: ${elapsed}ms`);
+export const time = <T>(fn: () => T): T => {
+    const start = performance.now();
+    const ret = fn();
+    const elapsed = Math.floor((performance.now() - start) * 1000) / 1000;
+    
+    console.log(`elapsed: ${format(elapsed, { ignoreZero: true })}`);
+    return ret;
 };
+
+export const assert_eq =<T>(expected: T, actual: T) => {
+    if (expected === actual) {
+        console.success('assertion succeded with value', actual);
+    } else {
+        console.error('assertion failed:');
+        console.error('\tExpected:', expected);
+        console.error('\tActual:  ', actual);
+        Deno.exit(1);
+    }
+}
