@@ -9,6 +9,7 @@ await read();
 /** @type string **/
 let data;
 
+// 00:16:38
 const partOne = () => {
     const grid = data.lines().map(l => l.split``.nums());
 
@@ -47,6 +48,7 @@ const partOne = () => {
     return heads.flatMap(rec).length;
 };
 
+// 00:23:53
 const partTwo = () => {
     const grid = data.lines().map(l => l.split``.nums());
 
