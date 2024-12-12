@@ -6,6 +6,8 @@ export default class Vec {
     static DOWN  = new Vec( 0,  1);
     static LEFT  = new Vec(-1,  0);
     static RIGHT = new Vec( 1,  0);
+    static MIN = new Vec(-Infinity,  -Infinity);
+    static MAX = new Vec(Infinity,  Infinity);
 
 	constructor(
         public readonly x: number,
@@ -113,12 +115,12 @@ export default class Vec {
 
     isLeft() {
         if (this.z !== 0) throw new Error('z must be 0 for isLeft');
-        return this.x > 0 && this.y === 0;
+        return this.x < 0 && this.y === 0;
     }
 
     isRight() {
         if (this.z !== 0) throw new Error('z must be 0 for isRight');
-        return this.x < 0 && this.y === 0;
+        return this.x > 0 && this.y === 0;
     }
 
     turnRight() {
@@ -163,6 +165,27 @@ export default class Vec {
         } else {
             throw new Error(`getDirection called on vec ${this.toString()}`);
         }
+    }
+
+    min(other: Vec): Vec {
+        return new Vec(
+            Math.min(this.x, other.x),
+            Math.min(this.y, other.y),
+            Math.min(this.z, other.z),
+        );
+    }
+
+    max(other: Vec): Vec {
+        return new Vec(
+            Math.max(this.x, other.x),
+            Math.max(this.y, other.y),
+            Math.max(this.z, other.z),
+        );
+    }
+
+    within(min: Vec, max: Vec): boolean {
+        return this.x >= min.x && this.y >= min.y && this.z >= min.z
+        && this.x <= max.x && this.y <= max.y && this.z <= max.z;
     }
 
 	static fromString(s: string) {
