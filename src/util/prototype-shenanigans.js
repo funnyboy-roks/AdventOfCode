@@ -327,22 +327,22 @@ Object.defineProperties(Object.prototype, {
 			return Object.values(this);
 		},
 	},
-	log: {
-		value: function (prefix) {
-			const originalPrepareStackTrace = Error.prepareStackTrace;
-			Error.prepareStackTrace = (_, stack) => stack;
+	// log: {
+	// 	value: function (prefix) {
+	// 		const originalPrepareStackTrace = Error.prepareStackTrace;
+	// 		Error.prepareStackTrace = (_, stack) => stack;
 
-			const callee = new Error().stack[1];
-			Error.prepareStackTrace = originalPrepareStackTrace;
-			const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}:${callee.getColumnNumber()}`;
+	// 		const callee = new Error().stack[1];
+	// 		Error.prepareStackTrace = originalPrepareStackTrace;
+	// 		const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}:${callee.getColumnNumber()}`;
 
-			prefix ? console.log(location, `[${prefix}]`, this) : console.log(location, this);
-			return this; // make it chainable
-		},
-	},
-	cp: {
-		value: function () {
-			copy(this);
-		},
-	},
+	// 		prefix ? console.log(location, `[${prefix}]`, this) : console.log(location, this);
+	// 		return this; // make it chainable
+	// 	},
+	// },
+	// cp: {
+	// 	value: function () {
+	// 		copy(this);
+	// 	},
+	// },
 });
