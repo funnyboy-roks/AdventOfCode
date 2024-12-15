@@ -123,6 +123,14 @@ export default class Vec {
         return this.x > 0 && this.y === 0;
     }
 
+    isVert() {
+        return this.isUp() || this.isDown();
+    }
+
+    isHoriz() {
+        return this.isRight() || this.isLeft();
+    }
+
     turnRight() {
         const mag = this.mag();
         if (this.isUp()) {
