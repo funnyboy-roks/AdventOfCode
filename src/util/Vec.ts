@@ -197,6 +197,11 @@ export default class Vec {
     }
 
 	static fromString(s: string) {
+        if (s === 'up') return Vec.UP;
+        if (s === 'down') return Vec.DOWN;
+        if (s === 'left') return Vec.LEFT;
+        if (s === 'right') return Vec.RIGHT;
+        console.log(s);
 		const [x, y, z] = s.split(',').nums();
 		return new Vec(x, y, z);
 	}
