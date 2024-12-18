@@ -118,3 +118,5 @@ export const assert_eq =<T>(expected: T, actual: T) => {
         Deno.exit(1);
     }
 }
+
+export const range = (start: number, end: number) => Array.from({ length: end - start }, (_, i) => i + start);
