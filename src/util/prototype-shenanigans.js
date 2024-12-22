@@ -232,6 +232,16 @@ Object.defineProperties(Array.prototype, {
             }
         }
     },
+    window: {
+        value: function(size) {
+            let out = [];
+            for (let i = 0; i <= this.length - size; ++i) {
+                out.push(this.slice(i, i + size));
+            }
+            return out;
+        }
+    }
+
 }
 );
 
@@ -309,6 +319,11 @@ Object.defineProperties(Number.prototype, {
             return n;
 		},
 	},
+    sign: {
+        value: function() {
+            return this === 0 ? 0 : x < 0 ? -1 : 1
+        }
+    }
 });
 
 Object.defineProperties(Object.prototype, {

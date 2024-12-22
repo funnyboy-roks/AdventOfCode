@@ -68,6 +68,7 @@ declare interface Number {
     sqrt(): number;
     copy(): void;
     digits(base?: number): number;
+    sign(): -1 | 0 | 1;
 }
 
 declare interface Object {
