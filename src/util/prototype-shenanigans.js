@@ -332,16 +332,16 @@ Object.defineProperties(Object.prototype, {
 			return Object.entries(this);
 		},
 	},
-	keys: {
-		value: function () {
-			return Object.keys(this);
-		},
-	},
-	values: {
-		value: function () {
-			return Object.values(this);
-		},
-	},
+	// keys: {
+	// 	value: function () {
+	// 		return Object.keys(this);
+	// 	},
+	// },
+	// values: {
+	// 	value: function () {
+	// 		return Object.values(this);
+	// 	},
+	// },
 	// log: {
 	// 	value: function (prefix) {
 	// 		const originalPrepareStackTrace = Error.prepareStackTrace;

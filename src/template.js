@@ -1,4 +1,4 @@
-import { read, readEx } from './util.ts';
+import { read, readEx, time, debug, assert_eq } from './util.ts';
 import Vec from './util/Vec.ts';
 import './util/prototype-shenanigans.js';
 import './types.d.ts';
@@ -24,5 +24,5 @@ if (Deno.args[0]) {
 	data = await read();
 }
 console.log('Output:');
-partOne();
-partTwo();
+time(partOne);
+time(partTwo);

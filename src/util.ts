@@ -99,12 +99,12 @@ export const createMatrix = (width: number, height: number, defaultValueCreator 
 	return new Array(height).fill(0).map((y) => new Array(width).fill(0).map((x) => defaultValueCreator(x, y)));
 };
 
-export const time = <T>(fn: () => T): T => {
+export const time = <T>(fn: () => T, label?: string): T => {
     const start = performance.now();
     const ret = fn();
     const elapsed = Math.floor((performance.now() - start) * 1000) / 1000;
     
-    console.log(`elapsed: ${format(elapsed, { ignoreZero: true })}`);
+    console.log(`${label ? label + ' ' : ''}elapsed: ${format(elapsed, { ignoreZero: true })}`);
     return ret;
 };
 
