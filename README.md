@@ -15,7 +15,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 6 - Nim](./06-nim)
 - [Day 7 - Haskell](./07-haskell)
 - [Day 8 - PHP](./08-php)
-<!-- - [Day 9 - Bash](./day09) -->
+- [Day 9 - Rust](./09-rust)
 <!-- - [Day 10 - Bash](./day10) -->
 <!-- - [Day 11 - Bash](./day11) -->
 <!-- - [Day 12 - Bash](./day12) -->
