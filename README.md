@@ -16,7 +16,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 7 - Haskell](./07-haskell)
 - [Day 8 - PHP](./08-php)
 - [Day 9 - Rust](./09-rust)
-<!-- - [Day 10 - Bash](./day10) -->
+- [Day 10 - Scala](./10-scala)
 <!-- - [Day 11 - Bash](./day11) -->
 <!-- - [Day 12 - Bash](./day12) -->
 <!-- - [Day 13 - Bash](./day13) -->
