@@ -12,7 +12,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 3 - Perl](./03-perl)
 - [Day 4 - C](./04-c)
 - [Day 5 - Java](./05-java)
-<!-- - [Day 6 - Bash](./day06) -->
+- [Day 6 - Nim](./06-nim)
 <!-- - [Day 7 - Bash](./day07) -->
 <!-- - [Day 8 - Bash](./day08) -->
 <!-- - [Day 9 - Bash](./day09) -->
