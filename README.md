@@ -7,8 +7,8 @@ several languages.
 
 Obviously spoiler alert if you intend to solve for yourself.
 
-- [Day 1 - Bash](./day01)
-<!-- - [Day 2 - Bash](./day02) -->
+- [Day 1 - Bash](./01-bash)
+- [Day 2 - Scheme](./02-scheme)
 <!-- - [Day 3 - Bash](./day03) -->
 <!-- - [Day 4 - Bash](./day04) -->
 <!-- - [Day 5 - Bash](./day05) -->
