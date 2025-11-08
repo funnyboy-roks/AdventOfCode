@@ -10,8 +10,8 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 1 - Bash](./01-bash)
 - [Day 2 - Scheme](./02-scheme)
 - [Day 3 - Perl](./03-perl)
-<!-- - [Day 4 - Bash](./day04) -->
-<!-- - [Day 5 - Bash](./day05) -->
+- [Day 4 - C](./04-c)
+- [Day 5 - Java](./05-java)
 <!-- - [Day 6 - Bash](./day06) -->
 <!-- - [Day 7 - Bash](./day07) -->
 <!-- - [Day 8 - Bash](./day08) -->
