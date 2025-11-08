@@ -14,7 +14,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 5 - Java](./05-java)
 - [Day 6 - Nim](./06-nim)
 - [Day 7 - Haskell](./07-haskell)
-<!-- - [Day 8 - Bash](./day08) -->
+- [Day 8 - PHP](./08-php)
 <!-- - [Day 9 - Bash](./day09) -->
 <!-- - [Day 10 - Bash](./day10) -->
 <!-- - [Day 11 - Bash](./day11) -->
