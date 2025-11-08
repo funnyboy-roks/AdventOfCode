@@ -1,37 +1,37 @@
 # Advent of Code
 
 My code for [Advent of Code](https://adventofcode.com/2024) 2024 in
-sevaral languages.
+several languages.
 
 ## Days
 
 Obviously spoiler alert if you intend to solve for yourself.
 
-[`01`](./day01.hs)
-<!-- [`02`](./day02.hs) -->
-<!-- [`03`](./day03.hs) -->
-<!-- [`04`](./day04.hs) -->
-<!-- [`05`](./day05.hs)   -->
-<!-- [`06`](./day06.hs) -->
-<!-- [`07`](./day07.hs) -->
-<!-- [`08`](./day08.hs) -->
-<!-- [`09`](./day09.hs) -->
-<!-- [`10`](./day10.hs)   -->
-<!-- [`11`](./day11.hs) -->
-<!-- [`12`](./day12.hs) -->
-<!-- [`13`](./day13.hs) -->
-<!-- [`14`](./day14.hs) -->
-<!-- [`15`](./day15.hs)   -->
-<!-- [`16`](./day16.hs) -->
-<!-- [`17`](./day17.hs) -->
-<!-- [`18`](./day18.hs) -->
-<!-- [`19`](./day19.hs) -->
-<!-- [`20`](./day20.hs)   -->
-<!-- [`21`](./day21.hs) -->
-<!-- [`22`](./day22.hs) -->
-<!-- [`23`](./day23.hs) -->
-<!-- [`24`](./day24.hs) -->
-<!-- [`25`](./day25.hs) -->
+- [Day 1 - Bash](./day01)
+<!-- - [Day 2 - Bash](./day02) -->
+<!-- - [Day 3 - Bash](./day03) -->
+<!-- - [Day 4 - Bash](./day04) -->
+<!-- - [Day 5 - Bash](./day05) -->
+<!-- - [Day 6 - Bash](./day06) -->
+<!-- - [Day 7 - Bash](./day07) -->
+<!-- - [Day 8 - Bash](./day08) -->
+<!-- - [Day 9 - Bash](./day09) -->
+<!-- - [Day 10 - Bash](./day10) -->
+<!-- - [Day 11 - Bash](./day11) -->
+<!-- - [Day 12 - Bash](./day12) -->
+<!-- - [Day 13 - Bash](./day13) -->
+<!-- - [Day 14 - Bash](./day14) -->
+<!-- - [Day 15 - Bash](./day15) -->
+<!-- - [Day 16 - Bash](./day16) -->
+<!-- - [Day 17 - Bash](./day17) -->
+<!-- - [Day 18 - Bash](./day18) -->
+<!-- - [Day 19 - Bash](./day19) -->
+<!-- - [Day 20 - Bash](./day20) -->
+<!-- - [Day 21 - Bash](./day21) -->
+<!-- - [Day 22 - Bash](./day22) -->
+<!-- - [Day 23 - Bash](./day23) -->
+<!-- - [Day 24 - Bash](./day24) -->
+<!-- - [Day 25 - Bash](./day25) -->
 
 ## Other Years
 
