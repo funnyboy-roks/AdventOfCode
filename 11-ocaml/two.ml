@@ -35,12 +35,14 @@ let apply (depth: int) (stone: int): int =
 let rec applyn depth lst =
     List.fold_left (+) 0 (List.map (apply depth) lst)
 
-let foo (path: string) =
-    List.map int_of_string (String.split_on_char ' ' (String.trim (read_whole_file path)))
+let foo (path: string) = read_whole_file path
+    |> String.trim
+    |> String.split_on_char ' '
+    |> List.map int_of_string
 
 let () =
     let path = Sys.argv.(Array.length Sys.argv - 1) in
     let nums = foo path in
     print_endline (String.concat " " (List.map string_of_int nums));
-    print_endline ( string_of_int (applyn 75 nums));
+    applyn 75 nums |> print_int
     ()
