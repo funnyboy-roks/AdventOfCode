@@ -18,7 +18,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 9 - Rust](./09-rust)
 - [Day 10 - Scala](./10-scala)
 - [Day 11 - OCaml](./11-ocaml)
-<!-- - [Day 12 - Bash](./day12) -->
+- [Day 12 - Typst](./12-typst)
 <!-- - [Day 13 - Bash](./day13) -->
 <!-- - [Day 14 - Bash](./day14) -->
 <!-- - [Day 15 - Bash](./day15) -->
