@@ -20,7 +20,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 11 - OCaml](./11-ocaml)
 - [Day 12 - Typst](./12-typst)
 - [Day 13 - Python](./13-python)
-<!-- - [Day 14 - Bash](./day14) -->
+- [Day 14 - D](./14-d)
 <!-- - [Day 15 - Bash](./day15) -->
 <!-- - [Day 16 - Bash](./day16) -->
 <!-- - [Day 17 - Bash](./day17) -->
