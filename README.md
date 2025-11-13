@@ -19,7 +19,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 - [Day 10 - Scala](./10-scala)
 - [Day 11 - OCaml](./11-ocaml)
 - [Day 12 - Typst](./12-typst)
-<!-- - [Day 13 - Bash](./day13) -->
+- [Day 13 - Python](./13-python)
 <!-- - [Day 14 - Bash](./day14) -->
 <!-- - [Day 15 - Bash](./day15) -->
 <!-- - [Day 16 - Bash](./day16) -->
