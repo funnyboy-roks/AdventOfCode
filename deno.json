@@ -1,0 +1,15 @@
+{
+    "tasks": {
+    },
+    "imports": {
+        "@std": "jsr:@std",
+        "combinations": "npm:combinations@^1.0.0",
+        "itertools": "npm:itertools@^2.3.2",
+        "jsdom": "npm:jsdom@^25.0.1"
+    },
+    "lint": {
+        "rules": {
+            "exclude": ["no-unused-vars", "prefer-const"]
+        }
+    }
+}
