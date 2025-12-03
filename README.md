@@ -7,7 +7,7 @@ Written in JavaScript/TypeScript using [Deno](https://deno.com)
 If you're interested in joining my private leaderboard, you can join
 [here] with the code: `987403-3723c994`
 
-[here]: https://adventofcode.com/2024/leaderboard/private
+[here]: https://adventofcode.com/2025/leaderboard/private
 
 ## Days
 
@@ -15,7 +15,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 
 [`01`](./src/day01.js)
 [`02`](./src/day02.js)
-<!-- [`03`](./src/day03.js)   -->
+[`03`](./src/day03.js)  
 <!-- [`04`](./src/day04.js) -->
 <!-- [`05`](./src/day05.js) -->
 <!-- [`06`](./src/day06.js)   -->
