@@ -4,6 +4,11 @@ import path from 'node:path';
 import combinations from 'combinations';
 
 Object.defineProperties(Array.prototype, {
+    last: {
+        value: function() {
+            return this.at(-1);
+        }
+    },
 	sum: {
 		value: function (start = 0) {
 			return this.reduce((a, b) => a + b, start);
@@ -51,10 +56,10 @@ Object.defineProperties(Array.prototype, {
 	},
 	counts: {
 		value: function () {
-			const counter = {};
+			const counter = new Map();
 
 			for (const c of this) {
-				counter[c] = counter[c] ? counter[c] + 1 : 1;
+				counter.set(c, (map.get(c) ?? 0) + 1);
 			}
 
 			return counter;
@@ -119,7 +124,7 @@ Object.defineProperties(Array.prototype, {
 	},
 	deepCopy: {
 		value: function () {
-			return JSON.parse(JSON.stringify(this));
+			return structuredClone(this);
 		},
 	},
 	count: {
@@ -240,10 +245,14 @@ Object.defineProperties(Array.prototype, {
             }
             return out;
         }
-    }
-
-}
-);
+    },
+	any: {
+		value: Array.prototype.some,
+	},
+	all: {
+		value: Array.prototype.every,
+	},
+});
 
 Object.defineProperties(String.prototype, {
 	matches: {

@@ -7,7 +7,7 @@ declare interface Array<T> {
     strings(): string[];
     strs(): string[];
     deduped(): T[];
-    counts(): { [key in this]: number };
+    counts(): Map<T, number>;
     max(): T;
     min(): T;
     minMax(): { min: T, max: T };
@@ -51,14 +51,17 @@ declare interface Array<T> {
 
     // Make map handle tuples a bit
     map<U>(mapper: (a: T, i: number, array: this) => U): this extends [T, T] ? [U, U] : U[];
+
+    any<T>(predicate: (value: T, index: number, array: this) => boolean): boolean;
+    all<T>(predicate: (value: T, index: number, array: this) => boolean): boolean;
 }
 
 declare interface String {
     matches(regex: RegExp): boolean;
     charCount(): Record<string, number>;
     permute(): string[][];
-    isLower(): string;
-    isUpper(): string;
+    isLower(): boolean;
+    isUpper(): boolean;
     lines(): string[];
     copy(): void;
     is_palendrome(): boolean;
