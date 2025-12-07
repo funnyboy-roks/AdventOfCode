@@ -3,6 +3,37 @@
 import path from 'node:path';
 import combinations from 'combinations';
 
+const ogSort = Array.prototype.sort;
+
+const toUnique = (a) => {
+    if (typeof a === 'string') {
+        return a;
+    } else if (typeof a === 'number') {
+        return a;
+    } else if (Object.getPrototypeOf(a)?.valueOf) {
+        const pt = Object.getPrototypeOf(a);
+        return pt.valueOf.call(a)
+    } else {
+        throw new Error('Cannot be converted into unique value: ' + a);
+    }
+};
+
+const cmp = (a, b) => {
+    if (typeof a === 'string') {
+        return a.localeCompare(b);
+    } else if (typeof a === 'number') {
+        return a - b;
+    } else if (Object.getPrototypeOf(a)?.cmp) {
+        const pt = Object.getPrototypeOf(a);
+        return pt.cmp.call(a, b)
+    } else if (Object.getPrototypeOf(a)?.toString) {
+        const pt = Object.getPrototypeOf(a);
+        return a.toString().localeCompare(b)
+    } else {
+        return (a + '').localeCompare(b + '')
+    }
+};
+
 Object.defineProperties(Array.prototype, {
     last: {
         value: function() {
@@ -10,7 +41,7 @@ Object.defineProperties(Array.prototype, {
         }
     },
 	sum: {
-		value: function (start = 0) {
+		value: function(start = 0) {
 			return this.reduce((a, b) => a + b, start);
 		},
 	},
@@ -49,11 +80,6 @@ Object.defineProperties(Array.prototype, {
 			return this.map((n) => n + '');
 		},
 	},
-	deduped: {
-		value: function () {
-			return [...new Set(this)];
-		},
-	},
 	counts: {
 		value: function () {
 			const counter = new Map();
@@ -89,7 +115,30 @@ Object.defineProperties(Array.prototype, {
 	},
 	sorted: {
 		value: function (reversed = false) {
-			return [...this].sort((a, b) => (reversed ? b - a : a - b));
+			return [...this].sort(null, reversed);
+		},
+	},
+    sort: {
+		value: function (fn = null, reversed = false) {
+            const og = ogSort.bind(this);
+            if (fn) return og(fn);
+
+            if (this.length <= 1) return this;
+            const first = this[0];
+
+            return reversed 
+                ? og((a, b) => -cmp(a, b))
+                : og((a, b) =>  cmp(a, b));
+        }
+    },
+	sortByKey: {
+		value: function (fn, reversed = false) {
+            if (this.length <= 1) return [...this];
+            const first = this[0];
+
+			return reversed
+                ? [...this].sort((a, b) => -cmp(fn(a), fn(b)))
+                : [...this].sort((a, b) =>  cmp(fn(a), fn(b)));
 		},
 	},
 	ror: {
@@ -201,7 +250,24 @@ Object.defineProperties(Array.prototype, {
     },
     unique: {
         value: function () {
-            return [...new Set(this)];
+            const seen = new Set();
+            return this.filter(v => {
+                const u = toUnique(v);
+                if (seen.has(u)) return false;
+                seen.add(u);
+                return true;
+            });
+        }
+    },
+    uniqueByKey: {
+        value: function (fn) {
+            const seen = new Set();
+            return this.filter(v => {
+                const u = toUnique(fn(v));
+                if (seen.has(u)) return false;
+                seen.add(u);
+                return true;
+            });
         }
     },
     filter_map: {
@@ -251,6 +317,15 @@ Object.defineProperties(Array.prototype, {
 	},
 	all: {
 		value: Array.prototype.every,
+	},
+	transpose: {
+		value: function() {
+            let out = [];
+            for (let i = 0; i < this[0].length; ++i) {
+                out.push(this.map(l => l[i]));
+            }
+            return out;
+        },
 	},
 });
 
@@ -336,37 +411,17 @@ Object.defineProperties(Number.prototype, {
 });
 
 Object.defineProperties(Object.prototype, {
-	getEntries: {
-		value: function () {
-			return Object.entries(this);
+	log: {
+		value: function (prefix) {
+			const originalPrepareStackTrace = Error.prepareStackTrace;
+			Error.prepareStackTrace = (_, stack) => stack;
+
+			const callee = new Error().stack[1];
+			Error.prepareStackTrace = originalPrepareStackTrace;
+			const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}`;
+
+			prefix ? console.log(location, `[${prefix}]`, this) : console.log(location, this);
+			return this; // make it chainable
 		},
 	},
-	// keys: {
-	// 	value: function () {
-	// 		return Object.keys(this);
-	// 	},
-	// },
-	// values: {
-	// 	value: function () {
-	// 		return Object.values(this);
-	// 	},
-	// },
-	// log: {
-	// 	value: function (prefix) {
-	// 		const originalPrepareStackTrace = Error.prepareStackTrace;
-	// 		Error.prepareStackTrace = (_, stack) => stack;
-
-	// 		const callee = new Error().stack[1];
-	// 		Error.prepareStackTrace = originalPrepareStackTrace;
-	// 		const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}:${callee.getColumnNumber()}`;
-
-	// 		prefix ? console.log(location, `[${prefix}]`, this) : console.log(location, this);
-	// 		return this; // make it chainable
-	// 	},
-	// },
-	// cp: {
-	// 	value: function () {
-	// 		copy(this);
-	// 	},
-	// },
 });

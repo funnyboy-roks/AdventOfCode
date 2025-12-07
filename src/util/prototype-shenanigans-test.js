@@ -1,4 +1,5 @@
 import './prototype-shenanigans.js';
+import Vec from "./Vec.ts";
 
 // let raw = loadRaw(1);
 // // raw = `1000
@@ -63,4 +64,12 @@ import './prototype-shenanigans.js';
 //     .sum()
 //     .log('Part One');
 
-console.log((5).digits());
+// console.log((5).digits());
+// 
+// console.log([1, 2].transpose())
+
+let dirs = [Vec.LEFT, Vec.RIGHT, Vec.LEFT.add(Vec.ZERO), Vec.UP];
+
+console.log(dirs);
+console.log(dirs.sortByKey(v => v.y));
+

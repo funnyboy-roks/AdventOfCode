@@ -12,7 +12,9 @@ declare interface Array<T> {
     min(): T;
     minMax(): { min: T, max: T };
     avg(): T;
-    sorted(): T[];
+    sort(comparator?: null | ((a: T, b: T) => number), reversed?: boolean): T[];
+    sortByKey<U>(keyFn: (a: T) => U, reversed?: boolean): T[];
+    sorted(reversed?: boolean): T[];
     ror(): T[];
     rol(): T[];
     truthy(): T[];
@@ -29,6 +31,7 @@ declare interface Array<T> {
     insert(index: number, ...items: T[]): void;
     repeat(n: number): T[];
     unique(): T[];
+    uniqueByKey<U>(fn: (value: T) => U): T[];
     filter_map<T>(fn: <T>(t: this[number], i: number, array: this) => T | undefined): T[];
 
     /**
@@ -52,8 +55,10 @@ declare interface Array<T> {
     // Make map handle tuples a bit
     map<U>(mapper: (a: T, i: number, array: this) => U): this extends [T, T] ? [U, U] : U[];
 
-    any<T>(predicate: (value: T, index: number, array: this) => boolean): boolean;
-    all<T>(predicate: (value: T, index: number, array: this) => boolean): boolean;
+    any(predicate: (value: T, index: number, array: this) => boolean): boolean;
+    all(predicate: (value: T, index: number, array: this) => boolean): boolean;
+
+    transpose<U>(this: T extends Array<U> ? Array<Array<U>> : never): Array<Array<U>>;
 }
 
 declare interface String {
@@ -75,11 +80,7 @@ declare interface Number {
 }
 
 declare interface Object {
-    getEntries(): [string, unknown][];
-    keys(): string[];
-    values(): unknown[];
     log(prefix?: string): void;
-    cp(): void;
 }
 
 declare interface Console {

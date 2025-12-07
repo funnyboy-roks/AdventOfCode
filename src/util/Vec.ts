@@ -95,9 +95,17 @@ export default class Vec {
 		return Math.abs(this.x - other.x) + Math.abs(this.y - other.y) + Math.abs(this.z - other.z);
 	}
 
-	toString() {
+	toString(): string {
 		return this.x + ',' + this.y + (this.z ? ',' + this.z : '');
 	}
+
+	valueOf(): symbol {
+		return Symbol.for(this.toString());
+	}
+
+    cmp(other: Vec): number {
+        return this.x - other.x || this.y - other.y || this.z - other.z;
+    }
 
 	equals(other: Vec) {
 		return this.x === other.x && this.y === other.y && this.z === other.z;
