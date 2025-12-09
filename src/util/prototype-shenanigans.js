@@ -1,7 +1,7 @@
 // This file makes every bone in my body hurt, *this is fine*
 
 import path from 'node:path';
-import combinations from 'combinations';
+import { combinations } from "combinatorics";
 
 const ogSort = Array.prototype.sort;
 
@@ -118,6 +118,9 @@ Object.defineProperties(Array.prototype, {
 			return [...this].sort(null, reversed);
 		},
 	},
+    ogSort: {
+        value: ogSort,
+    },
     sort: {
 		value: function (fn = null, reversed = false) {
             const og = ogSort.bind(this);
@@ -411,17 +414,17 @@ Object.defineProperties(Number.prototype, {
 });
 
 Object.defineProperties(Object.prototype, {
-	log: {
-		value: function (prefix) {
-			const originalPrepareStackTrace = Error.prepareStackTrace;
-			Error.prepareStackTrace = (_, stack) => stack;
+	// log: {
+	// 	value: function (prefix) {
+	// 		const originalPrepareStackTrace = Error.prepareStackTrace;
+	// 		Error.prepareStackTrace = (_, stack) => stack;
 
-			const callee = new Error().stack[1];
-			Error.prepareStackTrace = originalPrepareStackTrace;
-			const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}`;
+	// 		const callee = new Error().stack[1];
+	// 		Error.prepareStackTrace = originalPrepareStackTrace;
+	// 		const location = `${path.basename(callee.getFileName())}:${callee.getLineNumber()}`;
 
-			prefix ? console.log(location, `[${prefix}]`, this) : console.log(location, this);
-			return this; // make it chainable
-		},
-	},
+	// 		prefix ? console.log(location, `[${prefix}]`, this) : console.log(location, this);
+	// 		return this; // make it chainable
+	// 	},
+	// },
 });

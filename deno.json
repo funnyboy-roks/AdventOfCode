@@ -3,7 +3,7 @@
     },
     "imports": {
         "@std": "jsr:@std",
-        "combinations": "npm:combinations@^1.0.0",
+        "combinatorics": "https://deno.land/x/combinatorics/mod.ts",
         "itertools": "npm:itertools@^2.3.2",
         "jsdom": "npm:jsdom@^25.0.1"
     },

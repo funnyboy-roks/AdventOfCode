@@ -68,7 +68,7 @@ export default class Vec {
 	}
 
 	distSq(other: Vec) {
-		return (this.x - other.x) ** 2 + (this.y - other.y) ** 2 + (this.z + other.z) ** 2;
+		return (this.x - other.x) ** 2 + (this.y - other.y) ** 2 + (this.z - other.z) ** 2;
 	}
 
 	dist(other: Vec) {
@@ -209,7 +209,6 @@ export default class Vec {
         if (s === 'down') return Vec.DOWN;
         if (s === 'left') return Vec.LEFT;
         if (s === 'right') return Vec.RIGHT;
-        console.log(s);
 		const [x, y, z] = s.split(',').nums();
 		return new Vec(x, y, z);
 	}
