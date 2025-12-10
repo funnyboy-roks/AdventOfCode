@@ -6,7 +6,6 @@
     "jsr:@std/path@*": "1.0.8",
     "npm:@types/node@*": "24.2.0",
     "npm:choose@*": "0.0.0",
-    "npm:combinations@1": "1.0.0",
     "npm:combinatorial-generators@*": "1.1.2",
     "npm:itertools@^2.3.2": "2.3.2",
     "npm:jsdom@^25.0.1": "25.0.1",
@@ -55,9 +54,6 @@
     },
     "choose@0.0.0": {
       "integrity": "sha512-tIhmhmmp6Yl7MicthPpDBC8UlsOPmM4wSDb0Qob0rIQ4/LOT8fV/eWx4XuOuSF3ApT5PG4khX46r8do0JsEoeg=="
-    },
-    "combinations@1.0.0": {
-      "integrity": "sha512-aVgTfI/dewHblSn4gF+NZHvS7wtwg9YAPF2EknHMdH+xLsXLLIMpmHkSj64Zxs/R2m9VAAgn3bENjssrn7V4vQ=="
     },
     "combinatorial-generators@1.1.2": {
       "integrity": "sha512-3dMye87xRejFz2ZySj1TMIBavMy792v0Dnwzjn8kuxN1tTPKA7Joh3V8i5UyxWJOCmKygSVSClJUeAh6+Cy+1g=="
@@ -339,7 +335,6 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:combinations@1",
       "npm:itertools@^2.3.2",
       "npm:jsdom@^25.0.1"
     ]
