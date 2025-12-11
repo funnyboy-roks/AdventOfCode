@@ -4,7 +4,7 @@
     "imports": {
         "@std": "jsr:@std",
         "combinatorics": "https://deno.land/x/combinatorics/mod.ts",
-        "itertools": "npm:itertools@^2.3.2",
+        "itertools": "npm:itertools@^2.5.0",
         "jsdom": "npm:jsdom@^25.0.1"
     },
     "lint": {
