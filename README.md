@@ -1,4 +1,4 @@
-# Advent of Code
+# Advent of Cod
 
 My code for [Advent of Code](https://adventofcode.com/2025) 2025
 
@@ -24,7 +24,7 @@ Obviously spoiler alert if you intend to solve for yourself.
 [`09`](./src/day09.js)  
 [`10`](./src/day10.js)
 [`11`](./src/day11.js)
-<!-- [`12`](./src/day12.js) -->
+[`12`](./src/day12.js)
 
 ## Previous Years:
 

@@ -43,6 +43,14 @@ export default class Grid {
 	 * @param {(value, x: number, y: number) => boolean} fn
 	 */
 	filter(fn) {}
+
+    clone() {
+        return new Grid(this.width, this.height, (x, y) => this.get(x, y).value);
+    }
+
+    toString() {
+        return this.items.map(c => c.value).chunk(this.width).map(c => c.join`,`).join(`\n`);
+    }
 }
 
 /**

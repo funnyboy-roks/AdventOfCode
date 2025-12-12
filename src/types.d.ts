@@ -21,8 +21,8 @@ declare interface Array<T> {
     falsy(): T[];
     copy(): T[];
     deepCopy(): T[];
-    count(valueOrFunction: (t: T) => boolean): T[];
-    count(valueOrFunction: T): T[];
+    count(valueOrFunction: (t: T) => boolean): number;
+    count(valueOrFunction: T): number;
     split(sep: T): T[][];
     permute(): T[];
     chunk(size: number): T[][];

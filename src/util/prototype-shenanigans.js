@@ -157,6 +157,7 @@ Object.defineProperties(Array.prototype, {
 			for (let i = 0; i < count; ++i) {
 				this.push(this.shift());
 			}
+            return this;
 		},
 	},
 	truthy: {
@@ -181,7 +182,7 @@ Object.defineProperties(Array.prototype, {
 	},
 	count: {
 		value: function (valueOrFunction) {
-			return this.filter(typeof valueOrFunction === 'function' ? valueOrFunction : (n) => n === valueOrFunction);
+			return this.filter(typeof valueOrFunction === 'function' ? valueOrFunction : (n) => n === valueOrFunction).length;
 		},
 	},
 	split: {
